@@ -1,0 +1,140 @@
+// ===== Hamburger Menu =====
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('open');
+});
+
+// Close menu on link click
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('open');
+  });
+});
+
+// ===== "Other" radio toggle =====
+const activityOther = document.getElementById('activity_other');
+const activityOtherText = document.getElementById('activity_other_text');
+const activityRadios = document.querySelectorAll('input[name="activity"]');
+
+activityRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (activityOther.checked) {
+      activityOtherText.disabled = false;
+      activityOtherText.focus();
+    } else {
+      activityOtherText.disabled = true;
+      activityOtherText.value = '';
+    }
+  });
+});
+
+// ===== Form Submission =====
+// GAS Web App URL（クライアント側に露出するが、GAS側で防御済み）
+// - ハニーポット / タイムスタンプ検証 / 必須フィールド検証
+// - 入力値サニタイズ / レートリミット(個別+全体)
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwQCV_GPfOoFDjRymzRQ-1US61XkLvOIjGjZAYQEe_OfgQW80xriLPTam1jI0DaRdNP7g/exec';
+
+const form = document.getElementById('reservation-form');
+const formSuccess = document.getElementById('form-success');
+const formError = document.getElementById('form-error');
+const submitBtn = form.querySelector('.form__submit');
+
+// タイムスタンプ記録（bot検知: フォーム表示から送信まで3秒未満はbot判定）
+const formLoadedAt = Date.now();
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // Validate "other" text when "other" is selected
+  if (activityOther.checked && !activityOtherText.value.trim()) {
+    activityOtherText.focus();
+    activityOtherText.style.borderColor = '#e8836e';
+    return;
+  }
+
+  // Disable button & show loading
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="form__spinner"></span> 送信中...';
+  formError.hidden = true;
+
+  // Collect form data
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  // タイムスタンプを付与（GAS側でbot判定に使用）
+  data._ts = String(formLoadedAt);
+
+  try {
+    const response = await fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    // no-cors mode always returns opaque response, so we trust it succeeded
+    form.hidden = true;
+    formSuccess.hidden = false;
+    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  } catch (error) {
+    console.error('Submit error:', error);
+    formError.hidden = false;
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<span class="form__submit-paw">🐾</span> 予約を送信する';
+  }
+});
+
+// ===== Scroll Animations =====
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+// Add fade-in class to animatable elements
+document.querySelectorAll('.about__card, .cast__card, .schedule__card, .rules__card, .form__group').forEach(el => {
+  el.classList.add('fade-in');
+  observer.observe(el);
+});
+
+// ===== Floating Paw Particles =====
+function createPawParticles() {
+  const container = document.getElementById('particles');
+  const pawEmojis = ['🐾', '🐱', '🐶', '🦴', '🐾'];
+
+  for (let i = 0; i < 12; i++) {
+    const paw = document.createElement('span');
+    paw.className = 'paw-float';
+    paw.textContent = pawEmojis[i % pawEmojis.length];
+    paw.style.left = Math.random() * 100 + '%';
+    paw.style.top = Math.random() * 100 + '%';
+    paw.style.fontSize = (1 + Math.random() * 2) + 'rem';
+    paw.style.animationDelay = (Math.random() * 6) + 's';
+    paw.style.animationDuration = (4 + Math.random() * 4) + 's';
+    container.appendChild(paw);
+  }
+}
+
+createPawParticles();
+
+// ===== Header background on scroll =====
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    header.style.boxShadow = '0 2px 20px rgba(44, 74, 90, 0.1)';
+  } else {
+    header.style.boxShadow = 'none';
+  }
+});

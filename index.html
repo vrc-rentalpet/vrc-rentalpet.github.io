@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VRCレンタルペットショップ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="いつものVRライフにプラス1匹！あなたのインスタンスに無言勢のペットキャストを招くキャスト出張型イベントです。">
+  <meta property="og:title" content="VRCレンタルペットショップ">
+  <meta property="og:description" content="いつものVRライフにプラス1匹！あなたのインスタンスに無言勢のペットキャストを招くキャスト出張型イベントです。">
+  <meta property="og:type" content="website">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <nav class="header__nav">
+      <div class="header__logo">
+        <span class="header__paw">🐾</span> VRCレンタルペットショップ
+      </div>
+      <button class="header__hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="header__menu" id="nav-menu">
+        <li><a href="#about">イベントについて</a></li>
+        <li><a href="#cast">キャスト紹介</a></li>
+        <li><a href="#schedule">営業日程</a></li>
+        <li><a href="#rules">イベントルール</a></li>
+        <li><a href="#reservation">ご予約</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="hero__particles" id="particles"></div>
+
+    <!--
+      コルクボード風ポラロイド写真
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      写真を変更したい場合:
+        images/hero/ フォルダ内の画像を差し替えてください
+        photo1.png 〜 photo5.png が各ポラロイドに対応します
+        名前を表示したい場合は <p class="polaroid__name"> に記入
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    -->
+    <div class="polaroid polaroid--1" aria-hidden="true">
+      <div class="polaroid__tape"></div>
+      <div class="polaroid__frame">
+        <img src="images/hero/photo1.png" alt="" class="polaroid__img">
+      </div>
+    </div>
+    <div class="polaroid polaroid--2" aria-hidden="true">
+      <div class="polaroid__tape"></div>
+      <div class="polaroid__frame">
+        <img src="images/hero/photo2.png" alt="" class="polaroid__img">
+      </div>
+    </div>
+    <div class="polaroid polaroid--3" aria-hidden="true">
+      <div class="polaroid__tape"></div>
+      <div class="polaroid__frame">
+        <img src="images/hero/photo3.png" alt="" class="polaroid__img">
+      </div>
+    </div>
+    <div class="polaroid polaroid--4" aria-hidden="true">
+      <div class="polaroid__tape"></div>
+      <div class="polaroid__frame">
+        <img src="images/hero/photo4.png" alt="" class="polaroid__img">
+      </div>
+    </div>
+    <div class="polaroid polaroid--5" aria-hidden="true">
+      <div class="polaroid__tape"></div>
+      <div class="polaroid__frame">
+        <img src="images/hero/photo5.png" alt="" class="polaroid__img">
+      </div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__tagline">いつものVRライフに<span class="hero__highlight">プラス1匹！</span></p>
+      <h1 class="hero__title">
+        <img src="images/logo.png" alt="VRCレンタルペットショップ" class="hero__logo">
+      </h1>
+      <p class="hero__description">
+        あなたのインスタンスに<br>
+        無言勢のペットキャストを招く<br>
+        キャスト出張型イベントです！
+      </p>
+      <a href="#reservation" class="hero__cta">予約する</a>
+    </div>
+    <div class="hero__scroll-hint">
+      <span>Scroll</span>
+      <div class="hero__scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- イベントについて -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-title__icon">🐾</span>
+        イベントについて
+      </h2>
+      <div class="about__grid">
+        <div class="about__card">
+          <div class="about__card-icon">🐱</div>
+          <h3>ペットキャストがお伺い！</h3>
+          <p>無言勢のかわいいペットキャストがあなたのインスタンスに遊びに行きます。一緒にまったりチルしたり、ゲームで遊んだり、お散歩したり。</p>
+        </div>
+        <div class="about__card">
+          <div class="about__card-icon">🏠</div>
+          <h3>出張型イベント</h3>
+          <p>お店に来るのではなく、キャストがあなたのところへ出張！お好きなワールド、お好きなスタイルでお楽しみいただけます。</p>
+        </div>
+        <div class="about__card">
+          <div class="about__card-icon">📅</div>
+          <h3>定期開催</h3>
+          <p>毎月第2・第4土曜日の22時より、ひまり旅館にてグループパブリックで店舗営業も実施中！</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- キャスト紹介 -->
+  <section class="cast" id="cast">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-title__icon">🐾</span>
+        キャスト紹介
+      </h2>
+      <div class="cast__grid">
+
+        <!-- りちゃ -->
+        <div class="cast__card">
+          <div class="cast__image-wrap">
+            <img src="images/richa.png" alt="りちゃ" class="cast__image" loading="lazy">
+          </div>
+          <div class="cast__info">
+            <h3 class="cast__name">りちゃ</h3>
+            <p class="cast__vrchat-name">VRC: りちゃ！</p>
+            <p class="cast__description">いろんなものに興味津々なドラゴンです！</p>
+            <div class="cast__ng">
+              <span class="cast__ng-label">NG</span>
+              <ul class="cast__ng-list">
+                <li>インバイト＋でチル</li>
+                <li>翼を引っ張る行為</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- そら -->
+        <div class="cast__card">
+          <div class="cast__image-wrap">
+            <img src="images/sora.png" alt="そら" class="cast__image" loading="lazy">
+          </div>
+          <div class="cast__info">
+            <h3 class="cast__name">そら</h3>
+            <p class="cast__vrchat-name">VRC: SORA｜そら</p>
+            <p class="cast__description">少し恥ずかしがりやさんだけど人懐っこくて、元気いっぱいの男の子です！</p>
+            <div class="cast__ng">
+              <span class="cast__ng-label">NG</span>
+              <ul class="cast__ng-list">
+                <li>ゲームワールド</li>
+                <li>ホラーワールド</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- かれーちゃん -->
+        <div class="cast__card">
+          <div class="cast__image-wrap">
+            <img src="images/curry.png" alt="かれーちゃん" class="cast__image" loading="lazy">
+          </div>
+          <div class="cast__info">
+            <h3 class="cast__name">かれーちゃん</h3>
+            <p class="cast__vrchat-name">VRC: かれーちゃん</p>
+            <p class="cast__description">とても元気いっぱい、活発な猫どらごん！！<br>食いしん坊でご飯をくれる人がだーいすき！！！</p>
+            <div class="cast__ng">
+              <span class="cast__ng-label">NG</span>
+              <ul class="cast__ng-list">
+                <li>ホラーワールドを無理矢理最後まで</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 営業日程 -->
+  <section class="schedule" id="schedule">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-title__icon">📅</span>
+        営業日程
+      </h2>
+      <div class="schedule__info">
+        <div class="schedule__card">
+          <div class="schedule__card-header">店舗営業</div>
+          <div class="schedule__card-body">
+            <p class="schedule__time">毎月 第2・第4 土曜日</p>
+            <p class="schedule__time-detail">22:00〜</p>
+            <p class="schedule__place">📍 ひまり旅館</p>
+            <p class="schedule__note">グループパブリックで営業</p>
+          </div>
+        </div>
+        <div class="schedule__card">
+          <div class="schedule__card-header">出張予約</div>
+          <div class="schedule__card-body">
+            <p class="schedule__time">ご希望の日時で予約可能</p>
+            <p class="schedule__time-detail">下記フォームよりお申し込み</p>
+            <p class="schedule__place">📍 お好きなワールド</p>
+            <p class="schedule__note">日程は第3候補までご記入ください</p>
+          </div>
+        </div>
+      </div>
+      <div class="schedule__sns">
+        <p>最新情報・詳細は <strong>X (Twitter)</strong> をご確認ください！</p>
+        <a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer" class="schedule__x-link">
+          <svg class="schedule__x-icon" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @RentalPetShop
+        </a>
+        <p class="schedule__hashtag">#VRCレンタルペットショップ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- イベントルール -->
+  <section class="rules" id="rules">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-title__icon">📜</span>
+        イベントルール
+      </h2>
+      <div class="rules__card">
+        <p class="rules__intro">以下ルールは、イベント時間終了後もキャストがVRChatを終了するまで効力を発揮します</p>
+
+        <div class="rules__section">
+          <h3 class="rules__subtitle">禁止行為</h3>
+          <ul class="rules__list">
+            <li>VRChatのコミュニティガイドラインに違反する行為</li>
+            <li>NSFW行為やキャストに対する暴力・暴言</li>
+            <li>キャストに何かを強要する行為</li>
+            <li>その他キャストごとの禁止事項がございます<br>キャストのプロフィールをご確認ください。</li>
+          </ul>
+        </div>
+
+        <div class="rules__warning">
+          <p>トラブルが発生した場合など、キャストの判断で退出することがあります。</p>
+          <p>目に余るようであればイベントバンなどの対応をします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 予約フォーム -->
+  <section class="reservation" id="reservation">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-title__icon">📝</span>
+        ご予約フォーム
+      </h2>
+
+      <form class="form" id="reservation-form">
+        <!-- 事前確認 -->
+        <div class="form__group form__group--confirm">
+          <h3 class="form__group-title">事前確認</h3>
+
+          <div class="form__field">
+            <label class="form__label form__label--required">
+              本イベントのXアカウント（<a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">@RentalPetShop</a>）をフォローしましたか？<br>
+              <span class="form__note">イベントに関する連絡はXのDMを通じて行います。</span>
+            </label>
+            <div class="form__checkbox-wrap">
+              <label class="form__checkbox-label">
+                <input type="checkbox" name="x_follow" required>
+                <span class="form__checkbox-custom"></span>
+                はい、フォローしました
+              </label>
+            </div>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label form__label--required">
+              イベントルールについて理解しましたか？<br>
+              <span class="form__note">上記の<a href="#rules">イベントルール</a>をご確認ください。</span>
+            </label>
+            <div class="form__checkbox-wrap">
+              <label class="form__checkbox-label">
+                <input type="checkbox" name="rules_agree" required>
+                <span class="form__checkbox-custom"></span>
+                はい、理解しました
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 応募フォーム -->
+        <div class="form__group">
+          <h3 class="form__group-title">応募フォーム</h3>
+
+          <div class="form__field">
+            <label class="form__label form__label--required" for="x_id">XのIDを入力してください。</label>
+            <input type="text" id="x_id" name="x_id" class="form__input" placeholder="@example" required>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label form__label--required" for="vrchat_name">VRChatのユーザーネームを入力してください。</label>
+            <input type="text" id="vrchat_name" name="vrchat_name" class="form__input" placeholder="VRChatユーザーネーム" required>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label form__label--required" for="date1">イベントに参加いただける日程を入力してください。（第一候補）</label>
+            <input type="date" id="date1" name="date1" class="form__input" required>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label form__label--required" for="date2">イベントに参加いただける日程を入力してください。（第二候補）</label>
+            <input type="date" id="date2" name="date2" class="form__input" required>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="date3">イベントに参加いただける日程を入力してください。（第三候補）</label>
+            <input type="date" id="date3" name="date3" class="form__input">
+          </div>
+
+          <div class="form__field">
+            <label class="form__label form__label--required">イベントにおいてキャストとしたいことは何ですか？</label>
+            <div class="form__radio-group">
+              <label class="form__radio-label">
+                <input type="radio" name="activity" value="invite_chill" required>
+                <span class="form__radio-custom"></span>
+                インバイト＋でチル
+              </label>
+              <label class="form__radio-label">
+                <input type="radio" name="activity" value="friend_chill">
+                <span class="form__radio-custom"></span>
+                フレンド＋でフレンドと一緒にチル
+              </label>
+              <label class="form__radio-label">
+                <input type="radio" name="activity" value="game">
+                <span class="form__radio-custom"></span>
+                ゲームワールドで遊ぶ
+              </label>
+              <label class="form__radio-label">
+                <input type="radio" name="activity" value="public_walk">
+                <span class="form__radio-custom"></span>
+                パブリックでお散歩
+              </label>
+              <label class="form__radio-label">
+                <input type="radio" name="activity" value="horror">
+                <span class="form__radio-custom"></span>
+                ホラーワールドを探検
+              </label>
+              <label class="form__radio-label form__radio-label--other">
+                <input type="radio" name="activity" value="other" id="activity_other">
+                <span class="form__radio-custom"></span>
+                その他:
+                <input type="text" name="activity_other_text" class="form__input form__input--inline" placeholder="詳細を入力" disabled id="activity_other_text">
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ハニーポット（bot検知用・人間には見えない） -->
+        <div class="form__hp" aria-hidden="true">
+          <input type="email" name="_hp_email" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="form__submit">
+          <span class="form__submit-paw">🐾</span>
+          予約を送信する
+        </button>
+      </form>
+
+      <!-- エラーメッセージ -->
+      <div class="form__error" id="form-error" hidden>
+        <p>送信に失敗しました。時間をおいて再度お試しください。</p>
+      </div>
+
+      <!-- 送信完了メッセージ -->
+      <div class="form__success" id="form-success" hidden>
+        <div class="form__success-icon">🎉</div>
+        <h3>ご予約ありがとうございます！</h3>
+        <p>内容を確認のうえ、XのDMにてご連絡いたします。</p>
+        <p>しばらくお待ちください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__logo">
+          <span>🐾</span> VRCレンタルペットショップ
+        </div>
+        <div class="footer__links">
+          <a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <p class="footer__hashtag">#VRCレンタルペットショップ</p>
+        <p class="footer__copy">&copy; VRCレンタルペットショップ</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
