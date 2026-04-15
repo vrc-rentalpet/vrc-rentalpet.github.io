@@ -658,7 +658,7 @@ a:hover {
 /* タイムライン */
 .schedule__flow {
   max-width: 600px;
-  margin: 0 auto 48px;
+  margin: 0 auto 64px;
 }
 
 .schedule__flow-title {
