@@ -692,6 +692,14 @@ a:hover {
   font-size: 0.95rem;
 }
 
+.schedule__links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
 .schedule__x-link {
   display: inline-flex;
   align-items: center;
@@ -703,7 +711,6 @@ a:hover {
   font-weight: 700;
   font-size: 0.95rem;
   transition: background var(--transition), transform var(--transition);
-  margin-bottom: 12px;
 }
 
 .schedule__x-link:hover {
@@ -714,6 +721,30 @@ a:hover {
 }
 
 .schedule__x-icon {
+  flex-shrink: 0;
+}
+
+.schedule__vrc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-dark) 100%);
+  color: var(--color-white);
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.schedule__vrc-link:hover {
+  background: linear-gradient(135deg, var(--color-green-dark) 0%, #3a8e40 100%);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.schedule__vrc-icon {
   flex-shrink: 0;
 }
 
@@ -1143,6 +1174,9 @@ a:hover {
 }
 
 .footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
   margin-bottom: 12px;
 }
 
