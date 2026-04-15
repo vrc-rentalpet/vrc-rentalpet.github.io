@@ -746,8 +746,8 @@ a:hover {
 
 .schedule__vrc-icon {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: auto;
+  height: 16px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
@@ -1195,8 +1195,8 @@ a:hover {
 }
 
 .footer__vrc-icon {
-  width: 24px;
-  height: 24px;
+  width: auto;
+  height: 18px;
   object-fit: contain;
   filter: brightness(0) invert(1);
   vertical-align: middle;
