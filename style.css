@@ -785,24 +785,6 @@ a:hover {
   display: inline-block;
 }
 
-.schedule__reserve-btn {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 10px 28px;
-  background: var(--color-green);
-  color: var(--color-white);
-  font-size: 0.9rem;
-  font-weight: 700;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background var(--transition), transform var(--transition);
-}
-
-.schedule__reserve-btn:hover {
-  background: var(--color-green-dark);
-  transform: translateY(-2px);
-}
-
 .schedule__sns {
   text-align: center;
 }
