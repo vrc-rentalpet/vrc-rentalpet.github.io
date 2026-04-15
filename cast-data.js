@@ -26,8 +26,7 @@ const CAST_DATA = [
     image: 'images/richa.png',
     description: 'いろんなものに興味津々なドラゴンです！',
     ngList: [
-      'インバイト＋でチル',
-      '翼を引っ張る行為',
+      
     ],
   },
 
