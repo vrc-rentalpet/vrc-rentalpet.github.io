@@ -1196,9 +1196,11 @@ a:hover {
 }
 
 .footer__vrc-icon {
-  height: 28px;
+  height: 32px;
   width: auto;
   vertical-align: middle;
+  position: relative;
+  top: -1px;
 }
 
 .footer__hashtag {
