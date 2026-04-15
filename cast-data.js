@@ -56,7 +56,7 @@ const CAST_DATA = [
   {
     name: 'てすとちゃん',
     vrchatName: 'てすと',
-    image: 'images/testChan.png',
+    image: 'images/testchan.png',
     description: 'テストです！よろしくお願いします。',
     ngList: [
       'テストを書くのが苦手',
