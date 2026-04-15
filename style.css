@@ -516,6 +516,8 @@ a:hover {
 }
 
 .cast__card {
+  display: flex;
+  flex-direction: column;
   background: var(--color-white);
   border-radius: var(--radius);
   overflow: hidden;
@@ -549,6 +551,9 @@ a:hover {
 }
 
 .cast__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 20px;
 }
 
@@ -574,6 +579,7 @@ a:hover {
 }
 
 .cast__ng {
+  margin-top: auto;
   background: var(--color-pink-light);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
