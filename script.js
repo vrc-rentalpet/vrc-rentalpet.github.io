@@ -97,6 +97,39 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
+// ===== Cast Cards (cast-data.js から自動生成) =====
+function renderCastCards() {
+  const grid = document.getElementById('cast-grid');
+  if (!grid || typeof CAST_DATA === 'undefined') return;
+
+  grid.innerHTML = CAST_DATA.map(cast => {
+    // NG欄: ngList が空なら非表示
+    const ngSection = cast.ngList && cast.ngList.length > 0
+      ? `<div class="cast__ng">
+           <span class="cast__ng-label">NG</span>
+           <ul class="cast__ng-list">
+             ${cast.ngList.map(ng => `<li>${ng}</li>`).join('')}
+           </ul>
+         </div>`
+      : '';
+
+    return `
+      <div class="cast__card">
+        <div class="cast__image-wrap">
+          <img src="${cast.image}" alt="${cast.name}" class="cast__image" loading="lazy">
+        </div>
+        <div class="cast__info">
+          <h3 class="cast__name">${cast.name}</h3>
+          <p class="cast__vrchat-name">VRC: ${cast.vrchatName}</p>
+          <p class="cast__description">${cast.description}</p>
+          ${ngSection}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+renderCastCards();
+
 // ===== Scroll Animations =====
 const observerOptions = {
   threshold: 0.1,
