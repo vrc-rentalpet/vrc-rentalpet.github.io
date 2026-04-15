@@ -655,6 +655,81 @@ a:hover {
   background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-green-pale) 100%);
 }
 
+/* タイムライン */
+.schedule__flow {
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.schedule__flow-title {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+
+.schedule__timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+.schedule__timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: var(--color-green);
+  border-radius: 3px;
+}
+
+.schedule__step {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.schedule__step:last-child {
+  margin-bottom: 0;
+}
+
+.schedule__step::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 8px;
+  width: 13px;
+  height: 13px;
+  background: var(--color-green);
+  border: 3px solid var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--color-green);
+}
+
+.schedule__step-time {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--color-green-dark);
+  min-width: 56px;
+}
+
+.schedule__step-body h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.schedule__step-body p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+}
+
 .schedule__info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
