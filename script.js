@@ -71,18 +71,26 @@ form.addEventListener('submit', async (e) => {
   try {
     const response = await fetch(GAS_URL, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
 
-    // no-cors mode always returns opaque response, so we trust it succeeded
-    form.hidden = true;
-    formSuccess.hidden = false;
-    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const result = await response.json();
+
+    if (result.result === 'success') {
+      form.hidden = true;
+      formSuccess.hidden = false;
+      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      // GAS側でエラー（レートリミット等）
+      formError.querySelector('p').textContent = result.message || '送信に失敗しました。時間をおいて再度お試しください。';
+      formError.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span class="form__submit-paw">🐾</span> 予約を送信する';
+    }
 
   } catch (error) {
     console.error('Submit error:', error);
+    formError.querySelector('p').textContent = '送信に失敗しました。時間をおいて再度お試しください。';
     formError.hidden = false;
     submitBtn.disabled = false;
     submitBtn.innerHTML = '<span class="form__submit-paw">🐾</span> 予約を送信する';
