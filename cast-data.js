@@ -53,16 +53,6 @@ const CAST_DATA = [
     ],
   },
 
-  {
-    name: 'てすとちゃん',
-    vrchatName: 'てすと',
-    image: 'images/testchan.png',
-    description: 'テストです！よろしくお願いします。',
-    ngList: [
-      'テストを書くのが苦手',
-    ],
-  },
-
   // ── 新しいキャストを追加するときはここにコピペ ──
   // {
   //   name: '名前',
