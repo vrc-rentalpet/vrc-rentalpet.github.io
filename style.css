@@ -1194,6 +1194,14 @@ a:hover {
   opacity: 1;
 }
 
+.footer__vrc-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  vertical-align: middle;
+}
+
 .footer__hashtag {
   font-size: 0.85rem;
   color: var(--color-green-pale);
