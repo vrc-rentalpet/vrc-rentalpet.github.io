@@ -674,9 +674,9 @@ a:hover {
 
 .cast__recruit-list {
   list-style: none;
-  display: inline-block;
+  display: table;
+  margin: 0 auto 24px;
   text-align: left;
-  margin-bottom: 20px;
 }
 
 .cast__recruit-list li {
