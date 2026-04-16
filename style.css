@@ -1041,6 +1041,33 @@ a:hover {
   font-size: 0.85rem;
 }
 
+/* Date group */
+.form__date-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.form__date-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.form__date-label--required::after {
+  content: ' *';
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .form__date-group {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Checkbox */
 .form__checkbox-wrap {
   display: flex;
@@ -1261,6 +1288,37 @@ a:hover {
   width: 0;
   overflow: hidden;
   pointer-events: none;
+}
+
+/* ===== Scroll to Top ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  background: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(44, 74, 90, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 90;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background: var(--color-green-dark);
+  transform: translateY(-3px);
 }
 
 /* ===== Footer ===== */

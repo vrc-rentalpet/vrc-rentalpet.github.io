@@ -170,12 +170,29 @@ function createPawParticles() {
 
 createPawParticles();
 
-// ===== Header background on scroll =====
+// ===== Header background on scroll & Scroll to top =====
 const header = document.querySelector('.header');
+const scrollTopBtn = document.getElementById('scroll-top');
+
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     header.style.boxShadow = '0 2px 20px rgba(44, 74, 90, 0.1)';
   } else {
     header.style.boxShadow = 'none';
   }
+
+  // Show/hide scroll-to-top button
+  if (scrollTopBtn) {
+    if (window.scrollY > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }
 });
+
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}

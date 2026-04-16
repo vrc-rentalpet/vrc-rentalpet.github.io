@@ -114,7 +114,6 @@
       <a href="#reservation" class="hero__cta">予約する</a>
     </div>
     <div class="hero__scroll-hint">
-      <span>Scroll</span>
       <div class="hero__scroll-arrow"></div>
     </div>
   </section>
@@ -161,7 +160,7 @@
   <section class="cast" id="cast">
     <div class="container">
       <h2 class="section-title">
-        <span class="section-title__icon">🐾</span>
+        <span class="section-title__icon">🐱</span>
         キャスト紹介
       </h2>
       <!-- cast-data.js のデータから自動生成されます -->
@@ -242,7 +241,7 @@
         イベントルール
       </h2>
       <div class="rules__card">
-        <p class="rules__intro">以下ルールは、イベント時間終了後もキャストがVRChatを終了するまで効力を発揮します</p>
+        <p class="rules__intro">以下のルールは、イベント終了後もキャストがVRChatにいる間はずっと有効です</p>
 
         <div class="rules__section">
           <h3 class="rules__subtitle">禁止行為</h3>
@@ -307,7 +306,7 @@
 
         <!-- 応募フォーム -->
         <div class="form__group">
-          <h3 class="form__group-title">応募フォーム</h3>
+          <h3 class="form__group-title">ご予約内容</h3>
 
           <div class="form__field">
             <label class="form__label form__label--required" for="x_id">XのIDを入力してください。</label>
@@ -320,22 +319,25 @@
           </div>
 
           <div class="form__field">
-            <label class="form__label form__label--required" for="date1">イベントに参加いただける日程を入力してください。（第一候補）</label>
-            <input type="date" id="date1" name="date1" class="form__input" required>
+            <label class="form__label form__label--required">参加を希望する日程を入力してください。</label>
+            <div class="form__date-group">
+              <div class="form__date-item">
+                <label class="form__date-label form__date-label--required" for="date1">第一候補</label>
+                <input type="date" id="date1" name="date1" class="form__input" required>
+              </div>
+              <div class="form__date-item">
+                <label class="form__date-label form__date-label--required" for="date2">第二候補</label>
+                <input type="date" id="date2" name="date2" class="form__input" required>
+              </div>
+              <div class="form__date-item">
+                <label class="form__date-label" for="date3">第三候補（任意）</label>
+                <input type="date" id="date3" name="date3" class="form__input">
+              </div>
+            </div>
           </div>
 
           <div class="form__field">
-            <label class="form__label form__label--required" for="date2">イベントに参加いただける日程を入力してください。（第二候補）</label>
-            <input type="date" id="date2" name="date2" class="form__input" required>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label" for="date3">イベントに参加いただける日程を入力してください。（第三候補）</label>
-            <input type="date" id="date3" name="date3" class="form__input">
-          </div>
-
-          <div class="form__field">
-            <label class="form__label form__label--required">イベントにおいてキャストとしたいことは何ですか？</label>
+            <label class="form__label form__label--required">キャストと何をして遊びたいですか？</label>
             <div class="form__radio-group">
               <label class="form__radio-label">
                 <input type="radio" name="activity" value="invite_chill" required>
@@ -397,6 +399,9 @@
       </div>
     </div>
   </section>
+
+  <!-- トップへ戻る -->
+  <button class="scroll-top" id="scroll-top" aria-label="ページトップへ戻る">↑</button>
 
   <!-- フッター -->
   <footer class="footer">
