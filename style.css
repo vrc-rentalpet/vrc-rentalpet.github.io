@@ -672,6 +672,34 @@ a:hover {
   margin-bottom: 20px;
 }
 
+.cast__recruit-list {
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.cast__recruit-list li {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+
+.cast__recruit-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-green);
+  font-weight: 700;
+}
+
+.cast__recruit-note {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
 .cast__recruit-btn {
   display: inline-flex;
   align-items: center;
