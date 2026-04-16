@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vrc-rentalpet.github.io/sitemap.xml
