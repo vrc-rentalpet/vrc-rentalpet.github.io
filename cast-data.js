@@ -54,6 +54,17 @@ const CAST_DATA = [
     ],
   },
 
+  {
+    name: 'Eve/イヴ',
+    vrchatName: 'Evernight_Star',
+    image: 'images/eve.png',
+    description: 'みんなと遊ぶのが大好きな、自称 願い星の精霊！',
+    ngList: [
+      'ゲーム以外のホラーワールド',
+      '極度に酔うワールド',
+    ],
+  },
+
   // ── 新しいキャストを追加するときはここにコピペ ──
   // {
   //   name: '名前',
