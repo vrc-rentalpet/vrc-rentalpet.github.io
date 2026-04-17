@@ -1,3 +1,8 @@
+// =============================================================
+//  VRCレンタルペットショップ - script.js
+//  ソースを読んでいるあなたへ: ↑↑↓↓←→←→BA を試してみてね 🐾
+// =============================================================
+
 // ===== Hamburger Menu =====
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
@@ -196,3 +201,55 @@ if (scrollTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+// ===== Konami Code Easter Egg 🐾 =====
+(function () {
+  const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let idx = 0;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === KONAMI[idx]) {
+      idx++;
+      if (idx === KONAMI.length) {
+        idx = 0;
+        showEasterEgg();
+      }
+    } else {
+      idx = e.key === KONAMI[0] ? 1 : 0;
+    }
+  });
+
+  function showEasterEgg() {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+      position:fixed; inset:0; z-index:9999;
+      background:rgba(44,74,90,0.92);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      cursor:pointer; animation:fadeIn .4s ease;
+    `;
+
+    overlay.innerHTML = `
+      <style>
+        @keyframes fadeIn { from{opacity:0;transform:scale(.9)} to{opacity:1;transform:scale(1)} }
+        @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+        .egg-paw { font-size:4rem; animation:bounce 1s infinite; }
+        .egg-title { color:#fff; font-size:1.6rem; font-weight:900; margin:20px 0 8px; font-family:'Zen Maru Gothic',sans-serif; }
+        .egg-text { color:#c8e6c0; font-size:1rem; text-align:center; line-height:1.8; font-family:'Zen Maru Gothic',sans-serif; }
+        .egg-close { margin-top:28px; color:#f2b8c6; font-size:.85rem; font-family:'Zen Maru Gothic',sans-serif; }
+      </style>
+      <div class="egg-paw">🐾</div>
+      <p class="egg-title">隠しコマンド発見！</p>
+      <p class="egg-text">
+        ソースコードを読んだり、コナミコマンドを知っているなんて...<br>
+        あなた、もしかしてキャスト向きかも？🐱<br><br>
+        <strong style="color:#fff">キャスト募集中です！</strong><br>
+        気になったら @RentalPetShop にDMしてね🐾
+      </p>
+      <p class="egg-close">── クリックして閉じる ──</p>
+    `;
+
+    overlay.addEventListener('click', () => overlay.remove());
+    document.body.appendChild(overlay);
+  }
+})();
