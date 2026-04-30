@@ -101,6 +101,69 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
+// ===== Hero Polaroid Photos (hero-photos.js からランダム選出 & 自動切り替え) =====
+const HERO_ROTATE_INTERVAL = 5000;   // 何ミリ秒ごとに 1 枚切り替えるか
+const HERO_FADE_DURATION   = 600;    // フェードにかける時間（ミリ秒）
+
+function setupHeroPhotos() {
+  if (typeof HERO_PHOTOS === 'undefined' || HERO_PHOTOS.length === 0) return;
+  const imgs = Array.from(document.querySelectorAll('.polaroid__img'));
+  if (imgs.length === 0) return;
+
+  // フェード用の transition を仕込む
+  imgs.forEach(img => {
+    img.style.transition = `opacity ${HERO_FADE_DURATION}ms ease`;
+  });
+
+  // Fisher-Yates でシャッフル
+  const shuffle = (arr) => {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+
+  // 初期表示：シャッフルした上で各枠に割り当て
+  const pool = shuffle(HERO_PHOTOS);
+  imgs.forEach((img, i) => {
+    img.src = pool[i % pool.length];
+  });
+
+  // リストが枠数以下なら、入れ替える写真がないので回転は止める
+  if (HERO_PHOTOS.length <= imgs.length) return;
+
+  // 一定間隔でランダム 1 枚をフェード切り替え
+  setInterval(() => {
+    // 入れ替え対象の枠をランダム選出
+    const targetIdx = Math.floor(Math.random() * imgs.length);
+    const target = imgs[targetIdx];
+
+    // 現在画面に出ていない写真の中から選ぶ
+    const onScreen = imgs.map(img => img.getAttribute('src'));
+    const candidates = HERO_PHOTOS.filter(p => !onScreen.includes(p));
+    if (candidates.length === 0) return;
+    const next = candidates[Math.floor(Math.random() * candidates.length)];
+
+    // フェードアウト → src 差し替え → フェードイン
+    target.style.opacity = '0';
+    setTimeout(() => {
+      target.src = next;
+      // 画像のロード完了を待ってから戻す（チラつき防止）
+      const onLoad = () => {
+        target.style.opacity = '';
+        target.removeEventListener('load', onLoad);
+      };
+      target.addEventListener('load', onLoad);
+      // 既にキャッシュ済みで load が発火しないケースに備えて保険
+      setTimeout(() => { target.style.opacity = ''; }, HERO_FADE_DURATION);
+    }, HERO_FADE_DURATION);
+  }, HERO_ROTATE_INTERVAL);
+}
+
+setupHeroPhotos();
+
 // ===== Cast Cards (cast-data.js から自動生成) =====
 function renderCastCards() {
   const grid = document.getElementById('cast-grid');

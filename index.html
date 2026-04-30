@@ -80,10 +80,9 @@
     <!--
       コルクボード風ポラロイド写真
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      写真を変更したい場合:
-        images/hero/ フォルダ内の画像を差し替えてください
-        photo1.png 〜 photo5.png が各ポラロイドに対応します
-        名前を表示したい場合は <p class="polaroid__name"> に記入
+      表示される画像は hero-photos.js のリストから
+      ページ読み込みごとにランダム 5 枚が選ばれます。
+      画像を追加・差し替えたい場合は hero-photos.js を編集してください。
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     -->
     <div class="polaroid polaroid--1" aria-hidden="true">
@@ -458,6 +457,7 @@
   </footer>
 
   <script src="cast-data.js"></script>
+  <script src="hero-photos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
