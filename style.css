@@ -1201,6 +1201,12 @@ a:hover {
   gap: 4px;
 }
 
+.form__radio-group--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
 .form__radio-label {
   display: flex;
   align-items: center;
