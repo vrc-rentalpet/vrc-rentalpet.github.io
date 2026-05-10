@@ -173,7 +173,7 @@ function renderCastCards() {
     // 好きなワールドジャンル: worldGenres が空なら非表示
     const likesSection = cast.worldGenres && cast.worldGenres.length > 0
       ? `<div class="cast__likes">
-           <span class="cast__likes-label">好きなワールド</span>
+           <span class="cast__likes-label">好きなワールドジャンル</span>
            <ul class="cast__likes-list">
              ${cast.worldGenres.map(g => `<li>${g}</li>`).join('')}
            </ul>
