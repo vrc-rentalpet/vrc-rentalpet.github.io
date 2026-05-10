@@ -70,7 +70,7 @@ const CAST_DATA = [
     image: 'images/eve.png',
     description: 'みんなと遊ぶのが大好きな、自称 願い星の精霊！',
     worldGenres: [
-
+      'ゲームワールド',
     ],
     ngList: [
       'ゲーム以外のホラーワールド',
