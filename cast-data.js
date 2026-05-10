@@ -27,7 +27,7 @@ const CAST_DATA = [
     image: 'images/richa.png',
     description: 'いろんなものに興味津々なドラゴンです！',
     worldGenres: [
-
+      'ホラーワールド',
     ],
     ngList: [
 
