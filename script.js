@@ -170,6 +170,16 @@ function renderCastCards() {
   if (!grid || typeof CAST_DATA === 'undefined') return;
 
   grid.innerHTML = CAST_DATA.map(cast => {
+    // 好きなワールドジャンル: worldGenres が空なら非表示
+    const likesSection = cast.worldGenres && cast.worldGenres.length > 0
+      ? `<div class="cast__likes">
+           <span class="cast__likes-label">好きなワールド</span>
+           <ul class="cast__likes-list">
+             ${cast.worldGenres.map(g => `<li>${g}</li>`).join('')}
+           </ul>
+         </div>`
+      : '';
+
     // NG欄: ngList が空なら非表示
     const ngSection = cast.ngList && cast.ngList.length > 0
       ? `<div class="cast__ng">
@@ -178,6 +188,11 @@ function renderCastCards() {
              ${cast.ngList.map(ng => `<li>${ng}</li>`).join('')}
            </ul>
          </div>`
+      : '';
+
+    // 好き／NG をまとめるラッパー（カード下部に揃える）
+    const tagsSection = (likesSection || ngSection)
+      ? `<div class="cast__tags">${likesSection}${ngSection}</div>`
       : '';
 
     return `
@@ -189,7 +204,7 @@ function renderCastCards() {
           <h3 class="cast__name">${cast.name}</h3>
           <p class="cast__vrchat-name">VRC: ${cast.vrchatName}</p>
           <p class="cast__description">${cast.description}</p>
-          ${ngSection}
+          ${tagsSection}
         </div>
       </div>`;
   }).join('');

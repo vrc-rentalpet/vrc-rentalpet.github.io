@@ -604,8 +604,55 @@ a:hover {
   margin-bottom: 16px;
 }
 
-.cast__ng {
+.cast__tags {
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cast__likes {
+  background: var(--color-green-pale);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  border-left: 3px solid var(--color-green);
+}
+
+.cast__likes-label {
+  display: inline-block;
+  background: var(--color-green);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.cast__likes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cast__likes-list li {
+  font-size: 0.8rem;
+  color: var(--color-text);
+  padding-left: 16px;
+  position: relative;
+}
+
+.cast__likes-list li::before {
+  content: '♡';
+  position: absolute;
+  left: 0;
+  color: var(--color-green-dark);
+  font-weight: 700;
+}
+
+.cast__ng {
   background: var(--color-pink-light);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
