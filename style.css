@@ -602,10 +602,11 @@ a:hover {
   line-height: 1.7;
   color: var(--color-text);
   margin-bottom: 16px;
+  /* 説明文の表示行数をある程度揃え、カード間のレイアウトを安定させる */
+  min-height: calc(0.9rem * 1.7 * 3);
 }
 
 .cast__tags {
-  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 8px;
