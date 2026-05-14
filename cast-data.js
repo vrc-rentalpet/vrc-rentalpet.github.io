@@ -41,7 +41,7 @@ const CAST_DATA = [
     image: 'images/sora.png',
     description: '少し恥ずかしがりやさんだけど人懐っこくて、元気いっぱいの男の子です！',
     worldGenres: [
-
+      '景色が綺麗なまったりできるワールド',
     ],
     ngList: [
       'ゲームワールド',
@@ -56,7 +56,8 @@ const CAST_DATA = [
     image: 'images/curry.png',
     description: 'とても元気いっぱい、活発な猫どらごん！！<br>食いしん坊でご飯をくれる人がだーいすき！！！',
     worldGenres: [
-
+      '食べられるものがたくさんのワールド',
+      'ゲームワールド',
     ],
     ngList: [
       'ホラーワールドを無理矢理最後まで',
