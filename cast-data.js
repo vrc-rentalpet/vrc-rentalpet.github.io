@@ -69,7 +69,7 @@ const CAST_DATA = [
     name: 'Eve/イヴ',
     vrchatName: 'Evernight_Star',
     image: 'images/eve.png',
-    description: 'みんなと遊ぶのが大好きな、自称 願い星の精霊！',
+    description: 'みんなと遊ぶのが大好きな、<br>自称 願い星の精霊！',
     worldGenres: [
       'ゲームワールド',
     ],
@@ -78,6 +78,19 @@ const CAST_DATA = [
       '極度に酔うワールド',
     ],
   },
+
+  {
+  name: '黒ちゃん',
+  vrchatName: '四肢黒助',
+  image: 'images/shishikurosuke.png',
+  description: '二つの姿を持つ少し大きなトリちゃん！<br>遊ぶのがとっても好き！',
+  worldGenres: [
+    'ゲームワールド',
+  ],
+  ngList: [
+    'ホラーワールドで一匹にする',
+  ],
+},
 
   // ── 新しいキャストを追加するときはここにコピペ ──
   // {
