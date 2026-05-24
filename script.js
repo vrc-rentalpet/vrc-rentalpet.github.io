@@ -50,6 +50,22 @@ const submitBtn = form.querySelector('.form__submit');
 // タイムスタンプ記録（bot検知: フォーム表示から送信まで3秒未満はbot判定）
 const formLoadedAt = Date.now();
 
+// 予約希望日の最小値を「当日 + 8日後」に設定
+// （当日から1週間先までは予約不可。最短で 8 日後から選択可能）
+(function setMinReservationDate() {
+  const today = new Date();
+  const minDate = new Date(today);
+  minDate.setDate(today.getDate() + 8);
+  const yyyy = minDate.getFullYear();
+  const mm = String(minDate.getMonth() + 1).padStart(2, '0');
+  const dd = String(minDate.getDate()).padStart(2, '0');
+  const minDateStr = `${yyyy}-${mm}-${dd}`;
+  ['date1', 'date2', 'date3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.min = minDateStr;
+  });
+})();
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -57,6 +73,19 @@ form.addEventListener('submit', async (e) => {
   if (activityOther.checked && !activityOtherText.value.trim()) {
     activityOtherText.focus();
     activityOtherText.style.borderColor = '#e8836e';
+    return;
+  }
+
+  // 日付の範囲チェック（手入力で min より前の日付を入れられても弾く）
+  const dateInputs = ['date1', 'date2', 'date3']
+    .map(id => document.getElementById(id))
+    .filter(el => el && el.value);
+  const invalidDate = dateInputs.find(el => el.min && el.value < el.min);
+  if (invalidDate) {
+    invalidDate.focus();
+    invalidDate.style.borderColor = '#e8836e';
+    formError.querySelector('p').textContent = '予約日は当日から1週間以内のお日にちをご指定いただけません。';
+    formError.hidden = false;
     return;
   }
 
