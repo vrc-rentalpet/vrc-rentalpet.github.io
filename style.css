@@ -1064,6 +1064,24 @@ a:hover {
   background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-pink-light) 50%, var(--color-bg) 100%);
 }
 
+.reservation__lead-notice {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  padding: 16px 22px;
+  background: var(--color-cream);
+  border: 2px dashed var(--color-accent);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.reservation__lead-notice strong {
+  color: var(--color-accent);
+  font-size: 1.05em;
+}
+
 .form {
   max-width: 640px;
   margin: 0 auto;
