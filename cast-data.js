@@ -80,17 +80,34 @@ const CAST_DATA = [
   },
 
   {
-  name: '黒ちゃん',
-  vrchatName: '四肢黒助',
-  image: 'images/shishikurosuke.png',
-  description: '二つの姿を持つ少し大きなトリちゃん！<br>遊ぶのがとっても好き！',
-  worldGenres: [
-    'ゲームワールド',
-  ],
-  ngList: [
-    'ホラーワールドで一匹にする',
-  ],
-},
+    name: '黒ちゃん',
+    vrchatName: '四肢黒助',
+    image: 'images/shishikurosuke.png',
+    description: '二つの姿を持つ少し大きなトリちゃん！<br>遊ぶのがとっても好き！',
+    worldGenres: [
+      'ゲームワールド',
+    ],
+    ngList: [
+      'ホラーワールドで一匹にする',
+    ],
+  },
+
+  // ── アクア ──
+  {
+    name: 'アクア',
+    vrchatName: 'アウラヴィローズ',
+    image: 'images/aqua.png',
+    description: 'オシャレ好きなドラゴンさん<br>のんびり屋さんで一緒にのんびりしてくれる人を探してます',
+    worldGenres: [
+      '綺麗系ワールド',
+      'お部屋ワールド',
+    ],
+    ngList: [
+      'ホラーワールド',
+      'V感をいじる・試すような行為（軽く撫でる程度はOK）※痛感持ちです',
+      '大きな音を出すこと',
+    ],
+  },
 
   // ── 新しいキャストを追加するときはここにコピペ ──
   // {
