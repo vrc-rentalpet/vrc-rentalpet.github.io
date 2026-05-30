@@ -96,7 +96,7 @@ const CAST_DATA = [
   {
     name: 'アクア',
     vrchatName: 'アウラヴィローズ',
-    image: 'images/aqua.png',
+    image: 'images/aqua.jpg',
     description: 'オシャレ好きなドラゴンさん<br>のんびり屋さんで一緒にのんびりしてくれる人を探してます',
     worldGenres: [
       '綺麗系ワールド',
