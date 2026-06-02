@@ -60,9 +60,32 @@ const formLoadedAt = Date.now();
   const mm = String(minDate.getMonth() + 1).padStart(2, '0');
   const dd = String(minDate.getDate()).padStart(2, '0');
   const minDateStr = `${yyyy}-${mm}-${dd}`;
+
   ['date1', 'date2', 'date3'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.min = minDateStr;
+    if (!el) return;
+
+    // min 属性をプロパティ・HTML属性の両方に設定（端末差対策）
+    el.min = minDateStr;
+    el.setAttribute('min', minDateStr);
+
+    // 一部端末（iOS Safari 等）のカレンダーUIが min を反映せず
+    // 範囲外の日付を選べてしまうケースに備え、選択時に即チェック。
+    // 範囲外を選んだら値をクリアして、その場で注意を表示する。
+    el.addEventListener('change', () => {
+      if (el.value && el.value < minDateStr) {
+        el.value = '';
+        el.style.borderColor = '#e8836e';
+        if (formError) {
+          formError.querySelector('p').textContent = 'ご予約は1週間後以降の日程からお選びください。';
+          formError.hidden = false;
+          formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        el.style.borderColor = '';
+        if (formError) formError.hidden = true;
+      }
+    });
   });
 })();
 
