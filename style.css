@@ -1203,6 +1203,17 @@ a:hover {
   color: var(--color-accent);
 }
 
+.form__date-error {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.form__date-error::before {
+  content: '⚠ ';
+}
+
 @media (max-width: 768px) {
   .form__date-group {
     grid-template-columns: 1fr;
