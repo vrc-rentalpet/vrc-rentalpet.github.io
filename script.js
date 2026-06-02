@@ -46,6 +46,7 @@ const form = document.getElementById('reservation-form');
 const formSuccess = document.getElementById('form-success');
 const formError = document.getElementById('form-error');
 const submitBtn = form.querySelector('.form__submit');
+const leadNotice = document.querySelector('.reservation__lead-notice');
 
 // タイムスタンプ記録（bot検知: フォーム表示から送信まで3秒未満はbot判定）
 const formLoadedAt = Date.now();
@@ -134,6 +135,7 @@ form.addEventListener('submit', async (e) => {
 
     if (result.result === 'success') {
       form.hidden = true;
+      if (leadNotice) leadNotice.hidden = true;
       formSuccess.hidden = false;
       formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
