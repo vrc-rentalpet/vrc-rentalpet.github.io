@@ -51,12 +51,12 @@ const leadNotice = document.querySelector('.reservation__lead-notice');
 // タイムスタンプ記録（bot検知: フォーム表示から送信まで3秒未満はbot判定）
 const formLoadedAt = Date.now();
 
-// 予約希望日の最小値を「当日 + 7日後（= 1週間後の同曜日）」に設定
-// （当日から1週間先までは予約不可。最短で 1 週間後から選択可能）
+// 予約希望日の最小値を「当日 + 14日後（= 2週間後の同曜日）」に設定
+// （当日から2週間先までは予約不可。最短で 2 週間後から選択可能）
 (function setMinReservationDate() {
   const today = new Date();
   const minDate = new Date(today);
-  minDate.setDate(today.getDate() + 7);
+  minDate.setDate(today.getDate() + 14);
   const yyyy = minDate.getFullYear();
   const mm = String(minDate.getMonth() + 1).padStart(2, '0');
   const dd = String(minDate.getDate()).padStart(2, '0');
@@ -108,7 +108,7 @@ form.addEventListener('submit', async (e) => {
   if (invalidDate) {
     invalidDate.focus();
     invalidDate.style.borderColor = '#e8836e';
-    formError.querySelector('p').textContent = 'ご予約は1週間後以降の日程からお選びください。';
+    formError.querySelector('p').textContent = 'ご予約は2週間後以降の日程からお選びください。';
     formError.hidden = false;
     return;
   }
