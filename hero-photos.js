@@ -5,9 +5,13 @@
 // =============================================================
 //
 //  【写真を追加する手順】
-//  1. images/hero/ フォルダに画像を置く
-//  2. 下の配列に新しいパスを追加する
-//  3. push
+//  1. images/hero/ フォルダにスクリーンショット（.png / .jpg）を置く
+//  2. 圧縮スクリプトで WebP に変換する（★重要：元の PNG は 1 枚 2〜7MB あり、
+//     そのまま使うとページの読み込みが非常に遅くなります）
+//       python tools/optimize_images.py hero --delete images/hero/新しい写真.png
+//     → 同じ場所に 30KB 程度の .webp ができ、元の PNG は削除されます
+//  3. 下の配列に .webp のパスを追加する
+//  4. push
 //
 //  【補足】
 //  ・ポラロイド枠は 5 つ。リストの中から 5 枚が画面に表示されます
@@ -15,22 +19,23 @@
 //    別の写真にフェード切り替えされます（リアルタイム更新）
 //  ・リストが 5 枚以下の場合は切り替え動作はオフ（静的表示）
 //  ・切り替え速度は script.js の HERO_ROTATE_INTERVAL で調整可能
-//  ・ファイル形式は .png でも .jpg でも OK
+//  ・.webp は表示サイズ（4:5 の中央切り抜き・520x650）に合わせて
+//    最適化済み。ブラウザ側の表示結果は元画像と同じです
 // =============================================================
 
 const HERO_PHOTOS = [
-  'images/hero/VRChat_2026-04-11_22-22-14.452_2560x1440.png',
-  'images/hero/VRChat_2026-04-11_22-29-16.604_2560x1440.png',
-  'images/hero/VRChat_2026-04-11_22-57-26.193_2560x1440.png',
-  'images/hero/VRChat_2026-04-25_21-58-14.574_2560x1440.png',
-  'images/hero/VRChat_2026-04-25_22-06-18.982_2560x1440.png',
-  'images/hero/VRChat_2026-04-25_22-12-42.721_2560x1440.png',
-  'images/hero/VRChat_2026-04-25_22-28-20.906_2560x1440.png',
-  'images/hero/VRChat_2026-04-25_22-32-03.981_3840x2160.png',
-  'images/hero/VRChat_2026-04-25_22-33-52.451_3840x2160.png',
-  'images/hero/VRChat_2026-04-25_22-34-06.037_3840x2160.png',
-  'images/hero/VRChat_2026-04-25_22-35-05.062_2560x1440.png',
-  'images/hero/VRChat_2026-04-25_22-35-56.062_2560x1440.png',
-  'images/hero/VRChat_2026-04-25_22-36-03.009_2560x1440.png',
-  'images/hero/VRChat_2026-04-28_21-45-57.432_2560x1440.png',
+  'images/hero/VRChat_2026-04-11_22-22-14.452_2560x1440.webp',
+  'images/hero/VRChat_2026-04-11_22-29-16.604_2560x1440.webp',
+  'images/hero/VRChat_2026-04-11_22-57-26.193_2560x1440.webp',
+  'images/hero/VRChat_2026-04-25_21-58-14.574_2560x1440.webp',
+  'images/hero/VRChat_2026-04-25_22-06-18.982_2560x1440.webp',
+  'images/hero/VRChat_2026-04-25_22-12-42.721_2560x1440.webp',
+  'images/hero/VRChat_2026-04-25_22-28-20.906_2560x1440.webp',
+  'images/hero/VRChat_2026-04-25_22-32-03.981_3840x2160.webp',
+  'images/hero/VRChat_2026-04-25_22-33-52.451_3840x2160.webp',
+  'images/hero/VRChat_2026-04-25_22-34-06.037_3840x2160.webp',
+  'images/hero/VRChat_2026-04-25_22-35-05.062_2560x1440.webp',
+  'images/hero/VRChat_2026-04-25_22-35-56.062_2560x1440.webp',
+  'images/hero/VRChat_2026-04-25_22-36-03.009_2560x1440.webp',
+  'images/hero/VRChat_2026-04-28_21-45-57.432_2560x1440.webp',
 ];

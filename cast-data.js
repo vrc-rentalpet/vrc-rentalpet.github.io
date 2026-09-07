@@ -6,8 +6,13 @@
 //
 //  【キャストを追加する手順】
 //  1. images/ フォルダにプロフィール画像を置く（例: newcast.png）
-//  2. 下の配列に新しいオブジェクトをコピー＆ペーストして編集
-//  3. push
+//  2. 圧縮スクリプトで WebP に変換する（大きな画像をそのまま置くと
+//     ページの読み込みが遅くなります）
+//       python tools/optimize_images.py cast --delete images/newcast.png
+//     → images/newcast.webp ができ、元ファイルは削除されます
+//  3. 下の配列に新しいオブジェクトをコピー＆ペーストして編集
+//     （image には .webp のパスを書く）
+//  4. push
 //
 //  【各項目の説明】
 //  name          : 表示名
@@ -24,7 +29,7 @@ const CAST_DATA = [
   {
     name: 'りちゃ',
     vrchatName: 'りちゃ！',
-    image: 'images/richa.png',
+    image: 'images/richa.webp',
     description: 'いろんなものに興味津々なドラゴンです！',
     worldGenres: [
       'ホラーワールド',
@@ -38,7 +43,7 @@ const CAST_DATA = [
   {
     name: 'そら',
     vrchatName: 'SORA｜そら',
-    image: 'images/sora.png',
+    image: 'images/sora.webp',
     description: '少し恥ずかしがりやさんだけど人懐っこくて、元気いっぱいの男の子です！',
     worldGenres: [
       '景色が綺麗なまったりできるワールド',
@@ -53,7 +58,7 @@ const CAST_DATA = [
   {
     name: 'かれーちゃん',
     vrchatName: 'かれーちゃん',
-    image: 'images/curry.png',
+    image: 'images/curry.webp',
     description: 'とても元気いっぱい、活発な猫どらごん！！<br>食いしん坊でご飯をくれる人がだーいすき！！！',
     worldGenres: [
       '食べられるものがたくさんのワールド',
@@ -68,7 +73,7 @@ const CAST_DATA = [
   {
     name: 'Eve/イヴ',
     vrchatName: 'Evernight_Star',
-    image: 'images/eve.png',
+    image: 'images/eve.webp',
     description: 'みんなと遊ぶのが大好きな、<br>自称 願い星の精霊！',
     worldGenres: [
       'ゲームワールド',
@@ -82,7 +87,7 @@ const CAST_DATA = [
   {
     name: '黒ちゃん',
     vrchatName: '四肢黒助',
-    image: 'images/shishikurosuke.png',
+    image: 'images/shishikurosuke.webp',
     description: '二つの姿を持つ少し大きなトリちゃん！<br>遊ぶのがとっても好き！',
     worldGenres: [
       'ゲームワールド',
@@ -96,7 +101,7 @@ const CAST_DATA = [
   {
     name: 'アクア',
     vrchatName: 'アウラヴィローズ',
-    image: 'images/aqua.jpg',
+    image: 'images/aqua.webp',
     description: 'オシャレ好きなドラゴンさん<br>のんびり屋さんで一緒にのんびりしてくれる人を探してます',
     worldGenres: [
       '綺麗系ワールド',
@@ -113,7 +118,7 @@ const CAST_DATA = [
   {
     name: 'とまみ',
     vrchatName: '兎狸（tomami）',
-    image: 'images/tomami.png',
+    image: 'images/tomami.webp',
     description: '綺麗好きの猫ちゃん！<br>ご飯とお風呂がとっても大好きだよ！',
     worldGenres: [
       'お風呂や温泉があるワールド',
@@ -129,7 +134,7 @@ const CAST_DATA = [
   // {
   //   name: '名前',
   //   vrchatName: 'VRChat表示名',
-  //   image: 'images/ファイル名.png',
+  //   image: 'images/ファイル名.webp',
   //   description: '紹介文をここに',
   //   worldGenres: [
   //     'ジャンル1',

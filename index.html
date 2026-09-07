@@ -81,38 +81,38 @@
       コルクボード風ポラロイド写真
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       表示される画像は hero-photos.js のリストから
-      ページ読み込みごとにランダム 5 枚が選ばれます。
+      ページ読み込みごとにランダム 5 枚が選ばれます（img の src は JS が設定）。
       画像を追加・差し替えたい場合は hero-photos.js を編集してください。
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     -->
     <div class="polaroid polaroid--1" aria-hidden="true">
       <div class="polaroid__tape"></div>
       <div class="polaroid__frame">
-        <img src="images/hero/photo1.png" alt="" class="polaroid__img">
+        <img alt="" class="polaroid__img" decoding="async">
       </div>
     </div>
     <div class="polaroid polaroid--2" aria-hidden="true">
       <div class="polaroid__tape"></div>
       <div class="polaroid__frame">
-        <img src="images/hero/photo2.png" alt="" class="polaroid__img">
+        <img alt="" class="polaroid__img" decoding="async">
       </div>
     </div>
     <div class="polaroid polaroid--3" aria-hidden="true">
       <div class="polaroid__tape"></div>
       <div class="polaroid__frame">
-        <img src="images/hero/photo3.png" alt="" class="polaroid__img">
+        <img alt="" class="polaroid__img" decoding="async">
       </div>
     </div>
     <div class="polaroid polaroid--4" aria-hidden="true">
       <div class="polaroid__tape"></div>
       <div class="polaroid__frame">
-        <img src="images/hero/photo4.png" alt="" class="polaroid__img">
+        <img alt="" class="polaroid__img" decoding="async">
       </div>
     </div>
     <div class="polaroid polaroid--5" aria-hidden="true">
       <div class="polaroid__tape"></div>
       <div class="polaroid__frame">
-        <img src="images/hero/photo5.png" alt="" class="polaroid__img">
+        <img alt="" class="polaroid__img" decoding="async">
       </div>
     </div>
 
@@ -493,8 +493,8 @@
   </footer>
 
   <!-- ?v= はキャッシュ対策。JS/データ更新時は数字を上げると確実に再読込される -->
-  <script src="cast-data.js?v=20260712"></script>
-  <script src="hero-photos.js?v=20260712"></script>
-  <script src="script.js?v=20260712"></script>
+  <script src="cast-data.js?v=20260907"></script>
+  <script src="hero-photos.js?v=20260907"></script>
+  <script src="script.js?v=20260907"></script>
 </body>
 </html>
