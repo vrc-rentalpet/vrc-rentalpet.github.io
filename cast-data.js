@@ -19,6 +19,9 @@
 //  vrchatName    : VRChatのユーザーネーム（"VRC: ○○" と表示）
 //  image         : 画像ファイルパス（images/ からの相対パス）
 //  description   : 紹介文（改行したい場合は <br> を使用）
+//                  ★カードの1行は約15文字。それより長い文は文節の区切りで
+//                    <br> を入れると「〜だよ！」だけが次の行に落ちるのを防げます
+//                    例: 'ご飯とお風呂が<br>とっても大好きだよ！'
 //  worldGenres   : 好きなワールドジャンルの配列（空配列 [] なら非表示）
 //  ngList        : NG項目の配列（何個でもOK、空配列 [] ならNG欄を非表示）
 // =============================================================
@@ -44,7 +47,7 @@ const CAST_DATA = [
     name: 'そら',
     vrchatName: 'SORA｜そら',
     image: 'images/sora.webp',
-    description: '少し恥ずかしがりやさんだけど人懐っこくて、元気いっぱいの男の子です！',
+    description: '少し恥ずかしがりやさんだけど<br>人懐っこくて、元気いっぱいの男の子です！',
     worldGenres: [
       '景色が綺麗なまったりできるワールド',
     ],
@@ -109,7 +112,7 @@ const CAST_DATA = [
     ],
     ngList: [
       'ホラーワールド',
-      'V感をいじる・試すような行為（軽く撫でる程度はOK）※痛感持ちです',
+      'V感をいじる・試すような行為<br>（軽く撫でる程度はOK）※痛感持ちです',
       '大きな音を出すこと',
     ],
   },
@@ -119,7 +122,7 @@ const CAST_DATA = [
     name: 'とまみ',
     vrchatName: '兎狸（tomami）',
     image: 'images/tomami.webp',
-    description: '綺麗好きの猫ちゃん！<br>ご飯とお風呂がとっても大好きだよ！',
+    description: '綺麗好きの猫ちゃん！<br>ご飯とお風呂が<br>とっても大好きだよ！',
     worldGenres: [
       'お風呂や温泉があるワールド',
       '食べ物ギミックがたくさんあるワールド',
@@ -135,7 +138,7 @@ const CAST_DATA = [
     name: 'きつね',
     vrchatName: '赤のきつね',
     image: 'images/kitsune.webp',
-    description: 'どんなことにも積極的でなんでも任せろ屋さんのきつねなんだよ！！！',
+    description: 'どんなことにも積極的で<br>なんでも任せろ屋さんの<br>きつねなんだよ！！！',
     worldGenres: [
       '寒色系のチルワールド',
     ],

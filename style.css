@@ -604,6 +604,13 @@ a:hover {
   margin-bottom: 16px;
   /* 説明文の表示行数をある程度揃え、カード間のレイアウトを安定させる */
   min-height: calc(0.9rem * 1.7 * 3);
+  /* 「〜だよ！」だけが次の行に落ちるような不自然な改行を防ぐ
+     - auto-phrase: 文節の区切りで折り返す（Chrome 119+、html lang="ja" が必要）
+     - pretty: 末尾に短い行が残らないよう前の行を調整（Chrome 117+ / Safari 17.5+）
+       未対応ブラウザは balance（各行の長さを揃える）にフォールバック */
+  word-break: auto-phrase;
+  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .cast__tags {
@@ -643,6 +650,8 @@ a:hover {
   color: var(--color-text);
   padding-left: 16px;
   position: relative;
+  word-break: auto-phrase;
+  text-wrap: pretty;
 }
 
 .cast__likes-list li::before {
@@ -684,6 +693,8 @@ a:hover {
   color: var(--color-text);
   padding-left: 16px;
   position: relative;
+  word-break: auto-phrase;
+  text-wrap: pretty;
 }
 
 .cast__ng-list li::before {
