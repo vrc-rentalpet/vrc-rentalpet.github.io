@@ -130,6 +130,20 @@ const CAST_DATA = [
     ],
   },
 
+  // ── きつね ──
+  {
+    name: 'きつね',
+    vrchatName: '赤のきつね',
+    image: 'images/kitsune.webp',
+    description: 'どんなことにも積極的でなんでも任せろ屋さんのきつねなんだよ！！！',
+    worldGenres: [
+      '寒色系のチルワールド',
+    ],
+    ngList: [
+      '暖色強めのワールド',
+    ],
+  },
+
   // ── 新しいキャストを追加するときはここにコピペ ──
   // {
   //   name: '名前',
