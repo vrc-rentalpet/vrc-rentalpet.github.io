@@ -137,7 +137,7 @@ const CAST_DATA = [
   {
     name: 'きつね',
     vrchatName: '赤のきつね',
-    image: 'images/kitsune.webp',
+    image: 'images/kitsune.webp?v=20260912', // 同名で差し替えたので ?v= でブラウザキャッシュを回避
     description: 'どんなことにも積極的で<br>なんでも任せろ屋さんの<br>きつねなんだよ！！！',
     worldGenres: [
       '寒色系のチルワールド',
