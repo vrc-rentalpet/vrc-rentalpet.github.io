@@ -1093,6 +1093,55 @@ a:hover {
   font-size: 1.05em;
 }
 
+/* イベント主催者向け: コラボ依頼ページへの案内 */
+.reservation__collab {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  padding: 18px 22px;
+  background: var(--color-white);
+  border: 2px solid var(--color-pink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.reservation__collab-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  word-break: auto-phrase;
+}
+
+.reservation__collab-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  background: var(--color-pink-light);
+  border: 2px solid var(--color-pink);
+  border-radius: 50px;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.reservation__collab-btn:hover {
+  background: var(--color-pink);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* コラボ依頼ページ（collab.html） */
+.collab__back {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.9rem;
+}
+
+a.header__logo:hover {
+  text-decoration: none;
+}
+
 .form {
   max-width: 640px;
   margin: 0 auto;
@@ -1147,6 +1196,17 @@ a:hover {
   font-weight: 400;
 }
 
+/* フォームまわりの文章: 文節の区切りで折り返し、「す。」だけの行を作らない
+   （キャストカードの説明文と同じ指定。未対応ブラウザは通常の折り返し） */
+.reservation__lead-notice,
+.form__label,
+.form__checkbox-label,
+.form__success h3,
+.form__success p {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
 .form__input {
   width: 100%;
   padding: 12px 16px;
@@ -1183,6 +1243,15 @@ a:hover {
 
 .form__input::placeholder {
   color: #aaa;
+}
+
+.form__textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form__textarea--short {
+  min-height: 88px;
 }
 
 .form__input--inline {
