@@ -1105,12 +1105,23 @@ a:hover {
   text-align: center;
 }
 
+.reservation__collab-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-green-dark);
+  margin-bottom: 6px;
+}
+
 .reservation__collab-text {
   font-size: 0.9rem;
   line-height: 1.7;
   color: var(--color-text);
-  margin-bottom: 12px;
-  word-break: auto-phrase;
+  margin-bottom: 14px;
+}
+
+/* 文節のかたまり: この中では改行せず、かたまりの境目でだけ折り返す */
+.u-phrase {
+  display: inline-block;
 }
 
 .reservation__collab-btn {
