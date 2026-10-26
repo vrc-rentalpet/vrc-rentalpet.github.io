@@ -1211,6 +1211,7 @@ a.header__logo:hover {
    （キャストカードの説明文と同じ指定。未対応ブラウザは通常の折り返し） */
 .reservation__lead-notice,
 .form__label,
+.form__date-error,
 .form__checkbox-label,
 .form__success h3,
 .form__success p {

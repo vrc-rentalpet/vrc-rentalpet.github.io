@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="style.css?v=20261026">
+  <link rel="stylesheet" href="style.css?v=20261026c">
   <link rel="canonical" href="https://vrc-rentalpet.github.io/collab.html">
   <meta name="description" content="VRChatイベントの主催者さま向けの、VRCレンタルペットショップのペットキャスト出張（イベントコラボ）依頼フォームです。">
   <!-- OGP -->
@@ -57,6 +57,7 @@
       <p class="reservation__lead-notice">
         VRChatイベントの主催者さま向けの<br>
         キャスト出張（コラボ）依頼フォームです。<br>
+        ご依頼は <strong>2週間後以降</strong> の日程から承っております。<br>
         内容を確認のうえ、<wbr>XのDMにてご連絡いたします。
       </p>
 
@@ -124,7 +125,8 @@
           <div class="form__field">
             <label class="form__label form__label--required">
               キャストの出張を希望する日程を入力してください。<br>
-              <span class="form__note">※ 開催日が決まっている場合は、第一候補のみのご入力で大丈夫です。</span>
+              <span class="form__note">※ ご依頼は2週間後以降の日程からお選びください。<br>
+              ※ 開催日が決まっている場合は、第一候補のみのご入力で大丈夫です。</span>
             </label>
             <div class="form__date-group">
               <div class="form__date-item">
@@ -140,7 +142,7 @@
                 <input type="date" id="date3" name="date3" class="form__input">
               </div>
             </div>
-            <p class="form__date-error" id="date-error" hidden>過去の日付は選択できません。</p>
+            <p class="form__date-error" id="date-error" hidden>ご依頼は2週間後以降の日程からお選びください。</p>
           </div>
 
           <div class="form__field">
@@ -149,13 +151,13 @@
           </div>
 
           <div class="form__field">
-            <label class="form__label">
+            <label class="form__label form__label--required">
               希望するキャストの人数を選択してください。<br>
               <span class="form__note">※ ご希望に添えない場合がございます。</span>
             </label>
             <div class="form__radio-group form__radio-group--inline">
               <label class="form__radio-label">
-                <input type="radio" name="cast_count" value="1">
+                <input type="radio" name="cast_count" value="1" required>
                 <span class="form__radio-custom"></span>
                 1匹
               </label>
@@ -248,7 +250,7 @@
     </div>
   </footer>
 
-  <script src="common.js?v=20261026"></script>
-  <script src="collab.js?v=20261026"></script>
+  <script src="common.js?v=20261026c"></script>
+  <script src="collab.js?v=20261026c"></script>
 </body>
 </html>

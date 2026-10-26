@@ -16,24 +16,25 @@ const collabFormLoadedAt = Date.now();
 const SUBMIT_LABEL = '<span class="form__submit-paw">🐾</span> 依頼を送信する';
 
 // ===== 日程（第一〜第三候補） =====
-// 過去の日付は選べないよう、最小値を今日にする
+// 通常予約と同じく、最小値を「当日 + 14日後（= 2週間後の同曜日）」にする
 const collabDateEls = ['date1', 'date2', 'date3'].map(id => document.getElementById(id));
 const collabDateError = document.getElementById('date-error');
-const todayStr = (() => {
+const minDateStr = (() => {
   const d = new Date();
+  d.setDate(d.getDate() + 14);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 })();
 
-const isPastDate = (el) => el.value && el.value < todayStr;
+const isTooEarly = (el) => el.value && el.value < minDateStr;
 
 collabDateEls.forEach(el => {
-  el.min = todayStr;
-  el.setAttribute('min', todayStr);
+  el.min = minDateStr;
+  el.setAttribute('min', minDateStr);
 
   // 一部端末（iOS Safari 等）のカレンダーUIは min を無視するため、選択時にもチェック
   el.addEventListener('change', () => {
-    el.style.borderColor = isPastDate(el) ? '#e8836e' : '';
-    collabDateError.hidden = !collabDateEls.some(isPastDate);
+    el.style.borderColor = isTooEarly(el) ? '#e8836e' : '';
+    collabDateError.hidden = !collabDateEls.some(isTooEarly);
   });
 });
 
@@ -62,11 +63,11 @@ collabForm.addEventListener('submit', async (e) => {
     return;
   }
 
-  // 手入力などで過去の日付が入っていたら送信しない
-  const pastDate = collabDateEls.find(isPastDate);
-  if (pastDate) {
-    pastDate.focus();
-    pastDate.style.borderColor = '#e8836e';
+  // 手入力などで2週間以内の日付が入っていたら送信しない
+  const tooEarlyDate = collabDateEls.find(isTooEarly);
+  if (tooEarlyDate) {
+    tooEarlyDate.focus();
+    tooEarlyDate.style.borderColor = '#e8836e';
     collabDateError.hidden = false;
     return;
   }
