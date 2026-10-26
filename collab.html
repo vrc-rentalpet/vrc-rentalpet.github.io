@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="style.css?v=20261017b">
+  <link rel="stylesheet" href="style.css?v=20261026">
   <link rel="canonical" href="https://vrc-rentalpet.github.io/collab.html">
   <meta name="description" content="VRChatイベントの主催者さま向けの、VRCレンタルペットショップのペットキャスト出張（イベントコラボ）依頼フォームです。">
   <!-- OGP -->
@@ -122,11 +122,30 @@
           </div>
 
           <div class="form__field">
-            <label class="form__label" for="event_date">
-              日程を入力してください。<br>
-              <span class="form__note">例: 2026/11/15（土）、毎週土曜日 など</span>
+            <label class="form__label form__label--required">
+              キャストの出張を希望する日程を入力してください。<br>
+              <span class="form__note">※ 開催日が決まっている場合は、第一候補のみのご入力で大丈夫です。</span>
             </label>
-            <input type="text" id="event_date" name="event_date" class="form__input" placeholder="日程">
+            <div class="form__date-group">
+              <div class="form__date-item">
+                <label class="form__date-label form__date-label--required" for="date1">第一候補</label>
+                <input type="date" id="date1" name="date1" class="form__input" required>
+              </div>
+              <div class="form__date-item">
+                <label class="form__date-label" for="date2">第二候補</label>
+                <input type="date" id="date2" name="date2" class="form__input">
+              </div>
+              <div class="form__date-item">
+                <label class="form__date-label" for="date3">第三候補</label>
+                <input type="date" id="date3" name="date3" class="form__input">
+              </div>
+            </div>
+            <p class="form__date-error" id="date-error" hidden>過去の日付は選択できません。</p>
+          </div>
+
+          <div class="form__field">
+            <label class="form__label form__label--required" for="business_hours">イベントの営業時間を入力してください。</label>
+            <input type="text" id="business_hours" name="business_hours" class="form__input" placeholder="例: 22:00〜23:30" required>
           </div>
 
           <div class="form__field">
@@ -166,11 +185,6 @@
                 来れるだけたくさん！
               </label>
             </div>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label form__label--required" for="business_hours">イベントの営業時間を入力してください。</label>
-            <input type="text" id="business_hours" name="business_hours" class="form__input" placeholder="例: 22:00〜23:30" required>
           </div>
 
           <div class="form__field">
@@ -234,7 +248,7 @@
     </div>
   </footer>
 
-  <script src="common.js?v=20261017b"></script>
-  <script src="collab.js?v=20261017b"></script>
+  <script src="common.js?v=20261026"></script>
+  <script src="collab.js?v=20261026"></script>
 </body>
 </html>

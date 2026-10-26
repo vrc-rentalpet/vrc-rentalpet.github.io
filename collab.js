@@ -15,6 +15,34 @@ const collabFormLoadedAt = Date.now();
 
 const SUBMIT_LABEL = '<span class="form__submit-paw">🐾</span> 依頼を送信する';
 
+// ===== 日程（第一〜第三候補） =====
+// 過去の日付は選べないよう、最小値を今日にする
+const collabDateEls = ['date1', 'date2', 'date3'].map(id => document.getElementById(id));
+const collabDateError = document.getElementById('date-error');
+const todayStr = (() => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+})();
+
+const isPastDate = (el) => el.value && el.value < todayStr;
+
+collabDateEls.forEach(el => {
+  el.min = todayStr;
+  el.setAttribute('min', todayStr);
+
+  // 一部端末（iOS Safari 等）のカレンダーUIは min を無視するため、選択時にもチェック
+  el.addEventListener('change', () => {
+    el.style.borderColor = isPastDate(el) ? '#e8836e' : '';
+    collabDateError.hidden = !collabDateEls.some(isPastDate);
+  });
+});
+
+// GAS には「第1候補: 2026-11-15」形式の1つの文字列（event_date）として送る
+const buildEventDate = () => collabDateEls
+  .map((el, i) => el.value ? `第${i + 1}候補: ${el.value}` : '')
+  .filter(Boolean)
+  .join('\n');
+
 const showCollabError = (message) => {
   collabError.querySelector('p').textContent = message;
   collabError.hidden = false;
@@ -34,11 +62,24 @@ collabForm.addEventListener('submit', async (e) => {
     return;
   }
 
+  // 手入力などで過去の日付が入っていたら送信しない
+  const pastDate = collabDateEls.find(isPastDate);
+  if (pastDate) {
+    pastDate.focus();
+    pastDate.style.borderColor = '#e8836e';
+    collabDateError.hidden = false;
+    return;
+  }
+
   collabSubmitBtn.disabled = true;
   collabSubmitBtn.innerHTML = '<span class="form__spinner"></span> 送信中...';
   collabError.hidden = true;
 
   const data = Object.fromEntries(new FormData(collabForm).entries());
+  data.event_date = buildEventDate();
+  delete data.date1;
+  delete data.date2;
+  delete data.date3;
   data.form_type = 'collab';
   data._ts = String(collabFormLoadedAt);
 
