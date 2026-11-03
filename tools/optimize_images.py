@@ -27,7 +27,7 @@ VRChat のスクリーンショット（2560x1440 / 3840x2160 の PNG、1 枚 2�
 
 【サイズの根拠】
   hero: ポラロイド枠は最大 220px 幅・縦横比 4:5 で中央トリミング表示
-        （style.css の .polaroid--1 / .polaroid__frame）。
+        （renewal.css の .polaroid / .polaroid__img）。
         高解像度ディスプレイ向けに約 2.4 倍の 520x650 に中央クロップ。
   cast: キャストカードは正方形・object-fit: cover 表示。
         短辺 800px まで縮小（縦横比は維持）。

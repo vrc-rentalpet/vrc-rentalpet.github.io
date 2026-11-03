@@ -22,10 +22,10 @@
   <title>VRCレンタルペットショップ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="style.css?v=20261026c">
+  <link rel="stylesheet" href="renewal.css?v=20261103d">
   <link rel="canonical" href="https://vrc-rentalpet.github.io/">
   <meta name="thumbnail" content="https://vrc-rentalpet.github.io/images/ogp.png">
   <meta name="description" content="いつものVRライフにプラス1匹！あなたのインスタンスに無言勢のペットキャストを招くキャスト出張型イベントです。VRChatの無言勢ペットキャストがあなたのインスタンスに出張訪問するイベント「VRCレンタルペットショップ」の公式サイトです。">
@@ -54,473 +54,350 @@
   </script>
 </head>
 <body>
-  <!-- ヘッダー -->
-  <header class="header">
-    <nav class="header__nav">
-      <div class="header__logo">
-        <span class="header__paw">🐾</span> VRCレンタルペットショップ
-      </div>
-      <button class="header__hamburger" id="hamburger" aria-label="メニュー">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="header__menu" id="nav-menu">
-        <li><a href="#about">イベントについて</a></li>
-        <li><a href="#cast">キャスト紹介</a></li>
-        <li><a href="#schedule">営業日程</a></li>
-        <li><a href="#rules">イベントルール</a></li>
-        <li><a href="#reservation">ご予約</a></li>
-      </ul>
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <!-- ナビゲーション: 画面上部に浮かぶ小さなバー -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" aria-label="VRCレンタルペットショップ（ページの先頭へ）"><img class="nav__logo-icon nav__logo-icon--paw" src="images/nav-paw.webp" alt="" width="93" height="91"><span class="nav__logo-text"><span class="nav__logo-vrc">VRC</span><span class="nav__logo-cream">レンタル</span>ペットショップ</span><img class="nav__logo-icon nav__logo-icon--bone" src="images/nav-bone.webp" alt="" width="107" height="88"></a>
+    <nav class="nav__links" aria-label="ページ内メニュー">
+      <a href="#ways">会いかた</a>
+      <a href="#cast">キャスト</a>
+      <a href="#flow">予約の流れ</a>
+      <a href="#faq">よくある質問</a>
     </nav>
+    <a href="#reservation" class="btn btn--primary btn--small">予約する</a>
+    <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="メニューを開く">
+      <span></span><span></span>
+    </button>
+    <div class="nav__panel" id="nav-panel" hidden>
+      <a href="#reservation" class="btn btn--primary nav__panel-cta">出張を予約する</a>
+      <a href="#ways">会いかた</a>
+      <a href="#cast">キャスト</a>
+      <a href="#flow">予約の流れ</a>
+      <a href="#rules">イベントルール</a>
+      <a href="#faq">よくある質問</a>
+      <a href="collab.html">コラボ依頼</a>
+    </div>
   </header>
 
-  <!-- ヒーロー -->
-  <section class="hero">
-    <div class="hero__particles" id="particles"></div>
-
-    <!--
-      コルクボード風ポラロイド写真
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      表示される画像は hero-photos.js のリストから
-      ページ読み込みごとにランダム 5 枚が選ばれます（img の src は JS が設定）。
-      画像を追加・差し替えたい場合は hero-photos.js を編集してください。
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    -->
-    <div class="polaroid polaroid--1" aria-hidden="true">
-      <div class="polaroid__tape"></div>
-      <div class="polaroid__frame">
-        <img alt="" class="polaroid__img" decoding="async">
-      </div>
-    </div>
-    <div class="polaroid polaroid--2" aria-hidden="true">
-      <div class="polaroid__tape"></div>
-      <div class="polaroid__frame">
-        <img alt="" class="polaroid__img" decoding="async">
-      </div>
-    </div>
-    <div class="polaroid polaroid--3" aria-hidden="true">
-      <div class="polaroid__tape"></div>
-      <div class="polaroid__frame">
-        <img alt="" class="polaroid__img" decoding="async">
-      </div>
-    </div>
-    <div class="polaroid polaroid--4" aria-hidden="true">
-      <div class="polaroid__tape"></div>
-      <div class="polaroid__frame">
-        <img alt="" class="polaroid__img" decoding="async">
-      </div>
-    </div>
-    <div class="polaroid polaroid--5" aria-hidden="true">
-      <div class="polaroid__tape"></div>
-      <div class="polaroid__frame">
-        <img alt="" class="polaroid__img" decoding="async">
-      </div>
-    </div>
-
-    <div class="hero__content">
-      <p class="hero__tagline">いつものVRライフに<span class="hero__highlight">プラス1匹！</span></p>
-      <h1 class="hero__title">
-        <img src="images/logo.png" alt="VRCレンタルペットショップ" class="hero__logo">
-      </h1>
-      <p class="hero__description">
-        あなたのインスタンスに<br>
-        無言勢のペットキャストを招く<br>
-        キャスト出張型イベントです！
-      </p>
-      <a href="#reservation" class="hero__cta">予約する</a>
-    </div>
-    <div class="hero__scroll-hint">
-      <div class="hero__scroll-arrow"></div>
-    </div>
-  </section>
-
-  <!-- イベントについて -->
-  <section class="about" id="about">
-    <div class="container">
-      <h2 class="section-title">
-        <span class="section-title__icon">🐾</span>
-        イベントについて
-      </h2>
-      <div class="about__video">
-        <iframe
-          src="https://www.youtube.com/embed/T0pC2vz0DdY?si=PQpWFlUZrd6dXApp"
-          title="VRCレンタルペットショップのご紹介"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </div>
-      <div class="about__grid">
-        <div class="about__card">
-          <div class="about__card-icon">🐱</div>
-          <h3>ペットキャストがお伺い！</h3>
-          <p>無言勢のかわいいペットキャストがあなたのインスタンスに遊びに行きます。一緒にまったりチルしたり、ゲームで遊んだり、お散歩したり。</p>
-        </div>
-        <div class="about__card">
-          <div class="about__card-icon">🏠</div>
-          <h3>出張型イベント</h3>
-          <p>お店に来るのではなく、キャストがあなたのところへ出張！お好きなワールド、お好きなスタイルでお楽しみいただけます。</p>
-        </div>
-        <div class="about__card">
-          <div class="about__card-icon">📅</div>
-          <h3>店舗営業もあるよ！</h3>
-          <p>予約なしでもOK！定期開催の店舗営業なら、ふらっと遊びに来るだけでペットたちに会えます。<br><a href="#schedule">営業日程はこちら</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- キャスト紹介 -->
-  <section class="cast" id="cast">
-    <div class="container">
-      <h2 class="section-title">
-        <span class="section-title__icon">🐱</span>
-        キャスト紹介
-      </h2>
-      <!-- cast-data.js のデータから自動生成されます -->
-      <div class="cast__grid" id="cast-grid"></div>
-
-      <!-- キャスト募集バナー -->
-      <div class="cast__recruit">
-        <p class="cast__recruit-title">🐾 キャスト募集中！</p>
-        <p class="cast__recruit-text">一緒にペットキャストとして活動してみませんか？</p>
-        <ul class="cast__recruit-list">
-          <li>ケモノアバターをお持ちの方</li>
-          <li>VRヘッドセットをお持ちの方</li>
-          <li>Unityで簡単な改変ができる方（スタッフがサポートします！）</li>
-          <li>カワイイ動きに自信のある方！</li>
-        </ul>
-        <a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer" class="cast__recruit-btn">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          DMで応募する
-        </a>
-        <p class="cast__recruit-note">※ メッセージ送信後2日経っても返信がない場合、<br>オーナーが気づいていない可能性が高いので、<br>お手数ですがメンションでお知らせいただけると大変助かります。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 営業日程 -->
-  <section class="schedule" id="schedule">
-    <div class="container">
-      <h2 class="section-title">
-        <span class="section-title__icon">📅</span>
-        営業日程
-      </h2>
-      <!-- 当日の流れ -->
-      <div class="schedule__flow">
-        <h3 class="schedule__flow-title">出張イベントの流れ</h3>
-        <div class="schedule__timeline">
-          <div class="schedule__step">
-            <div class="schedule__step-time">22:00</div>
-            <div class="schedule__step-body">
-              <h4>イベント開始・集合</h4>
-              <p>まずはイベント用のインスタンスに集合し、説明を受けます。その後、お客様が用意したインスタンスへキャストと一緒に移動します。</p>
-            </div>
+  <main id="main">
+    <!-- ヒーロー -->
+    <section class="hero" id="top">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="ribbon">いつものVRライフにプラス1匹！</p>
+          <h1 class="hero__logo">
+            <img src="images/logo.png" alt="VRCレンタルペットショップ" width="696" height="391">
+          </h1>
+          <p class="hero__lead">
+            <span class="u-phrase">あなたのインスタンスに、</span><span class="u-phrase">無言勢のペットキャストが</span><span class="u-phrase">遊びに行きます。</span>
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#reservation">出張を予約する</a>
+            <a class="btn btn--plain" href="#ways">店舗営業の日程を見る</a>
           </div>
-          <div class="schedule__step">
-            <div class="schedule__step-time">22:45</div>
-            <div class="schedule__step-body">
-              <h4>終了時刻（目安）</h4>
-              <p>便宜上の終了時刻です。そのまま過ごしてもOKですが、22:45以降はキャストの都合で退出することがあります。</p>
-            </div>
-          </div>
+          <p class="hero__fact">店舗営業は毎月第2・第4土曜 22:00〜</p>
+        </div>
+
+        <!-- 写真ボード: hero-photos.js からランダムに選んで表示 -->
+        <div class="hero__board" aria-hidden="true">
+          <figure class="polaroid" style="--i:0; --r:-6deg"><span class="polaroid__tape"></span><img class="polaroid__img" alt="" decoding="async"></figure>
+          <figure class="polaroid" style="--i:1; --r:5deg"><span class="polaroid__tape"></span><img class="polaroid__img" alt="" decoding="async"></figure>
+          <figure class="polaroid" style="--i:2; --r:4deg"><span class="polaroid__tape"></span><img class="polaroid__img" alt="" decoding="async"></figure>
+          <figure class="polaroid" style="--i:3; --r:-3deg"><span class="polaroid__tape"></span><img class="polaroid__img" alt="" decoding="async"></figure>
         </div>
       </div>
+      <div class="scallop" aria-hidden="true"></div>
+    </section>
 
-      <div class="schedule__info">
-        <div class="schedule__card">
-          <div class="schedule__card-header">店舗営業</div>
-          <div class="schedule__card-body">
-            <p class="schedule__time">毎月 第2・第4 土曜日</p>
-            <p class="schedule__time-detail">22:00〜</p>
-            <p class="schedule__place">📍 ひまり旅館（グループパブリック）</p>
-            <p class="schedule__note">予約不要でペットたちに会えます</p>
-          </div>
-        </div>
-        <div class="schedule__card">
-          <div class="schedule__card-header">出張予約</div>
-          <div class="schedule__card-body">
-            <p class="schedule__time">ご希望の日程で予約可能</p>
-            <p class="schedule__time-detail"><a href="#reservation">下記フォームよりお申し込み</a></p>
-            <p class="schedule__place">📍 お好きなワールド</p>
-            <p class="schedule__note">
-              ※ ご予約は<strong>2週間後以降</strong>の日程から承ります<br>
-              日程は第3候補までご記入ください
-            </p>
-          </div>
+    <!-- 会いかたは3つ -->
+    <section class="section section--dots" id="ways">
+      <div class="container">
+        <h2 class="sticker-title">会いかたは3つ</h2>
+        <p class="section-lead">
+          <span class="u-phrase">ふらっと遊びに来るのも、</span><span class="u-phrase">おうちに呼ぶのも、</span><span class="u-phrase">イベントに呼ぶのもOKです。</span>
+        </p>
+
+        <div class="ways">
+          <article class="way way--shop">
+            <svg class="way__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 20h32v20H8z" fill="#fff"/><path d="M6 12h36l-3 8H9z" fill="var(--matcha-deep)"/><path d="M8 20v20h32V20M6 12h36l-3 8H9zM20 40V29h8v11" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+            <h3>店舗で会う</h3>
+            <p>予約なしで、ふらっと遊びに来られます。</p>
+            <dl class="way__facts">
+              <div><dt>いつ</dt><dd>毎月 第2・第4 土曜 22:00〜</dd></div>
+              <div><dt>どこ</dt><dd>ひまり旅館（グループパブリック）</dd></div>
+            </dl>
+            <a class="btn btn--plain" href="https://vrc.group/VRCRPS.8829" target="_blank" rel="noopener noreferrer">VRChatグループに参加</a>
+          </article>
+
+          <article class="way way--visit">
+            <svg class="way__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 22v18h28V22" fill="#fff"/><path d="M5 24L24 8l19 16" fill="var(--strawberry)"/><path d="M10 22v18h28V22M5 24L24 8l19 16M20 40V30h8v10" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <h3>おうちに呼ぶ</h3>
+            <p>好きなワールドに、キャストが出張します。</p>
+            <dl class="way__facts">
+              <div><dt>いつ</dt><dd>2週間後以降の、好きな日</dd></div>
+              <div><dt>時間</dt><dd>22:00〜22:45ごろ</dd></div>
+            </dl>
+            <a class="btn btn--primary" href="#reservation">出張を予約する</a>
+          </article>
+
+          <article class="way way--collab">
+            <svg class="way__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10c12 6 24 6 36 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M11 12.5l3 9 4-7.5zM21 14.5l3 9 3-9zM30 14l4 7.5 3-9z" fill="var(--lemon)" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 34h20M18 40h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            <h3>イベントに呼ぶ</h3>
+            <p>主催しているイベントに、キャストが遊びに行きます。</p>
+            <dl class="way__facts">
+              <div><dt>いつ</dt><dd>2週間後以降の開催日</dd></div>
+              <div><dt>対象</dt><dd>イベント主催者さま</dd></div>
+            </dl>
+            <a class="btn btn--plain" href="collab.html">コラボを依頼する</a>
+          </article>
         </div>
       </div>
-      <div class="schedule__sns">
-        <p>最新情報・詳細は <strong>X (Twitter)</strong> をご確認ください！</p>
-        <div class="schedule__links">
-          <a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer" class="schedule__x-link">
-            <svg class="schedule__x-icon" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            @RentalPetShop
-          </a>
-          <a href="https://vrc.group/VRCRPS.8829" target="_blank" rel="noopener noreferrer" class="schedule__vrc-link">
-            <svg class="schedule__vrc-icon" viewBox="0 0 1200 600" width="48" height="24"><path fill="currentColor" d="M982.78,113.33H217.23c-24.93,0-45.23,20.29-45.23,45.23v188.9c0,24.95,20.3,45.23,45.23,45.23h663.19l61.54,79.17c7.64,9.82,15.79,14.79,24.25,14.79,5.46,0,10.55-2.11,14.38-5.94,4.56-4.59,6.87-11,6.86-19.11l-.08-69.16c22.78-2.31,40.64-21.6,40.64-45v-188.89c0-24.96-20.29-45.23-45.22-45.23ZM1011.34,347.47c0,15.78-12.8,28.56-28.56,28.56h-12.1v1.11l.12,84.57c-.02,5.53-1.76,8.29-4.59,8.29s-6.76-2.8-11.1-8.37l-66.52-85.61H217.23c-15.79,0-28.56-12.78-28.56-28.56v-187.81c0-15.78,12.78-28.56,28.56-28.56h765.55c15.78,0,28.56,12.8,28.56,28.56v187.81Z"/><path fill="currentColor" d="M330.47,177.77c-4.53,0-8.02,1.45-9.06,5.36l-31.29,111.56-31.5-111.56c-1.04-3.92-4.53-5.36-9.06-5.36-7.19,0-16.87,4.53-16.87,11.12,0,.41.21,1.23.41,2.06l39.73,129.48c2.06,6.17,9.47,9.06,17.29,9.06s15.44-2.89,17.29-9.06l39.52-129.48c.21-.83.41-1.43.41-2.06,0-6.38-9.66-11.12-16.87-11.12Z"/><path fill="currentColor" d="M434.81,261.96c15.44-4.74,26.97-17.5,26.97-41.16,0-32.75-21.82-43.03-48.79-43.03h-40.75c-5.15,0-8.64,3.91-8.64,8.23h-.02v133.83c0,5.55,6.59,8.44,13.38,8.44s13.38-2.89,13.38-8.44v-53.73h17.29l29.24,56.81c2.06,4.11,5.57,6.38,9.27,6.38,7.81,0,16.67-7.21,16.67-14,0-.83-.19-2.26-1.02-3.3l-26.97-50.02ZM413.01,245.07h-22.65v-43.84h22.65c13.38,0,22.03,5.76,22.03,22.03s-8.64,21.82-22.03,21.82Z"/><polygon fill="currentColor" points="771.7 274.52 807.52 274.52 789.61 211.33 771.7 274.52"/><path fill="currentColor" d="M938.76,164.13h-432.7c-15.78,0-28.56,12.79-28.56,28.56v120.64c0,15.78,12.79,28.56,28.56,28.56h432.7c15.78,0,28.56-12.79,28.56-28.56v-120.64c0-15.78-12.79-28.56-28.56-28.56ZM548.36,305.98v.03c18.72,0,20.38-13.38,20.99-22.03.41-6.38,6.17-8.44,13.17-8.44,9.27,0,13.59,2.68,13.59,13.17,0,24.91-20.38,40.75-49.2,40.75-25.93,0-47.34-12.76-47.34-47.15v-57.43c0-34.37,21.61-47.15,47.54-47.15,28.61,0,49,15.23,49,39.11,0,10.7-4.32,13.17-13.38,13.17-7.62,0-13.17-2.26-13.38-8.44-.41-6.38-1.85-20.38-21.4-20.38-13.8,0-21.61,7.62-21.61,23.67v57.43c0,16.06,7.81,23.67,22.03,23.67ZM716.11,319.8v.02c0,5.55-6.79,8.44-13.38,8.44s-13.38-2.89-13.38-8.44v-59.08h-46.32v59.08c0,5.55-6.79,8.44-13.38,8.44s-13.38-2.89-13.38-8.44v-133.82c0-5.76,6.59-8.23,13.38-8.23s13.38,2.47,13.38,8.23v53.73h46.32v-53.73c0-5.76,6.59-8.23,13.38-8.23s13.38,2.47,13.38,8.23v133.8ZM830.15,328.25h0c-4.53,0-8.02-1.43-9.06-5.36l-7.83-27.39h-47.15l-7.81,27.39c-1.04,3.91-4.53,5.36-9.06,5.36-7.21,0-16.87-4.53-16.87-11.12,0-.41.21-1.23.41-2.06l39.73-129.48c1.85-6.17,9.47-9.06,17.08-9.06s15.44,2.89,17.29,9.06l39.73,129.48c.21.83.41,1.43.41,2.06,0,6.38-9.68,11.12-16.87,11.12ZM936.77,201.85h-30.05v117.94c0,5.55-6.79,8.44-13.38,8.44s-13.38-2.89-13.38-8.44v-117.94h-30.26c-5.34,0-8.44-5.57-8.44-12.14,0-5.76,2.68-11.95,8.44-11.95h87.07c5.76,0,8.44,6.17,8.44,11.95,0,6.38-3.09,12.14-8.44,12.14Z"/></svg>
-            グループに参加
-          </a>
-        </div>
-        <p class="schedule__hashtag">#VRCレンタルペットショップ</p>
+    </section>
+
+    <!-- キャスト紹介: 値札タグ -->
+    <section class="section section--matcha" id="cast">
+      <div class="container">
+        <h2 class="sticker-title">キャストのみんな</h2>
+        <p class="section-lead">
+          <span class="u-phrase">好きなワールドやNGも</span><span class="u-phrase">のせているので、</span><span class="u-phrase">遊ぶときの参考にしてね。</span>
+        </p>
+        <p class="tags__hint" aria-hidden="true">← 横にスワイプしてね →</p>
+        <!-- cast-data.js から自動生成。スマホでは横スクロール（キーボードでも操作できるよう tabindex） -->
+        <div class="tags" id="cast-grid" tabindex="0" role="region" aria-label="キャスト一覧"></div>
+
+        <aside class="recruit">
+          <h3 class="recruit__title">キャスト募集中</h3>
+          <p>一緒にペットキャストとして活動してみませんか？</p>
+          <ul class="recruit__list">
+            <li>ケモノアバターをお持ちの方</li>
+            <li>VRヘッドセットをお持ちの方</li>
+            <li>Unityで簡単な改変ができる方（スタッフがサポートします）</li>
+            <li>カワイイ動きに自信のある方</li>
+          </ul>
+          <a class="btn btn--plain" href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">XのDMで応募する</a>
+          <p class="recruit__note">
+            <span class="u-phrase">2日たっても返信がない場合は、</span><span class="u-phrase">お手数ですが</span><span class="u-phrase">メンションでお知らせください。</span>
+          </p>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- イベントルール -->
-  <section class="rules" id="rules">
-    <div class="container">
-      <h2 class="section-title">
-        <span class="section-title__icon">📜</span>
-        イベントルール
-      </h2>
-      <div class="rules__card">
-        <p class="rules__intro">以下のルールは、イベント終了後もキャストがVRChatにいる間はずっと有効です</p>
+    <!-- 出張予約の流れ -->
+    <section class="section" id="flow">
+      <div class="container">
+        <h2 class="sticker-title">出張予約の流れ</h2>
 
-        <div class="rules__section">
-          <h3 class="rules__subtitle">禁止行為</h3>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num step__num--1" aria-hidden="true"><span>1</span></span>
+            <h3>フォームで申し込む</h3>
+            <p>2週間後以降の日程を、第三候補まで選んで送信します。</p>
+          </li>
+          <li class="step">
+            <span class="step__num step__num--2" aria-hidden="true"><span>2</span></span>
+            <h3>XのDMで日程が決まる</h3>
+            <p><a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">@RentalPetShop</a> からご連絡します。フォローをお忘れなく。</p>
+          </li>
+          <li class="step">
+            <span class="step__num step__num--3" aria-hidden="true"><span>3</span></span>
+            <h3>当日22:00に集合</h3>
+            <p>イベント用インスタンスで説明を聞いたら、キャストと一緒にあなたのインスタンスへ移動します。</p>
+          </li>
+        </ol>
+
+        <div class="timeline">
+          <h3 class="timeline__title">当日のタイムライン</h3>
+          <dl>
+            <div class="timeline__row"><dt>22:00</dt><dd>イベント用インスタンスに集合して説明を受け、あなたのインスタンスへ移動</dd></div>
+            <div class="timeline__row"><dt>22:45</dt><dd>終了の目安。そのまま過ごしてもOKですが、キャストの都合で退出することがあります</dd></div>
+          </dl>
+        </div>
+
+        <div class="video">
+          <button class="video__facade" id="video-facade" type="button" aria-label="紹介動画を再生する">
+            <img src="https://i.ytimg.com/vi/T0pC2vz0DdY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+            <span class="video__play" aria-hidden="true"></span>
+            <span class="video__label">紹介動画を見る</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- イベントルール -->
+    <section class="section section--dots" id="rules">
+      <div class="container container--narrow">
+        <h2 class="sticker-title">イベントルール</h2>
+        <div class="card rules">
+          <p class="rules__intro">以下のルールは、イベント終了後もキャストがVRChatにいる間はずっと有効です。</p>
+          <h3>禁止していること</h3>
           <ul class="rules__list">
             <li>VRChatのコミュニティガイドラインに違反する行為</li>
             <li>NSFW（不適切な）行為</li>
             <li>キャストに対する暴力や暴言</li>
-            <li>キャストに何かを強要する行為</li>
-            <li>その他キャストごとの禁止事項がございます<br><a href="#cast">キャストのプロフィール</a>をご確認ください。</li>
+            <li>キャストに何かを<span class="u-phrase">強要する行為</span></li>
+            <li>キャストごとのNG（<a href="#cast">キャスト紹介</a>に記載）</li>
           </ul>
-        </div>
-
-        <div class="rules__warning">
-          <p>トラブルが発生した場合など、キャストの判断で退出することがあります。</p>
-          <p>違反行為があった場合、イベント参加禁止（BAN）などの対応を行う場合があります。</p>
+          <p class="rules__warning">トラブルが発生した場合など、キャストの判断で退出することがあります。違反行為があった場合は、イベント参加禁止などの対応を行うことがあります。</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 予約フォーム -->
-  <section class="reservation" id="reservation">
-    <div class="container">
-      <h2 class="section-title">
-        <span class="section-title__icon">📝</span>
-        ご予約フォーム
-      </h2>
+    <!-- よくある質問 -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <h2 class="sticker-title">よくある質問</h2>
+        <div class="faq">
+          <details>
+            <summary>いつまでに予約すればいいですか？</summary>
+            <p>ご予約は2週間後以降の日程から承っています。日程は第三候補まで入力してください。</p>
+          </details>
+          <details>
+            <summary>予約したあとはどうなりますか？</summary>
+            <p>内容を確認して、XのDMでご連絡します。事前に <a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">@RentalPetShop</a> のフォローをお願いします。</p>
+          </details>
+          <details>
+            <summary>「無言勢」ってなんですか？</summary>
+            <p>声を出さずに、身振りや表情で気持ちを伝えるスタイルのことです。キャストはしゃべらずに、しぐさでコミュニケーションします。</p>
+          </details>
+          <details>
+            <summary>どんなことをして遊べますか？</summary>
+            <p>まったりチル、ゲームワールド、パブリックでのお散歩、ホラーワールドの探検などです。キャストごとに苦手なワールドもあるので、<a href="#cast">キャスト紹介</a>も見てください。</p>
+          </details>
+          <details>
+            <summary>キャストは何匹まで呼べますか？</summary>
+            <p>1〜5匹、または「来れるだけたくさん！」から選べます。ご希望に添えない場合もあります。</p>
+          </details>
+          <details>
+            <summary>予約しなくても会えますか？</summary>
+            <p>毎月第2・第4土曜の22:00から、ひまり旅館（グループパブリック）で店舗営業をしています。予約なしで遊びに来られます。</p>
+          </details>
+          <details>
+            <summary>キャンセルや日程変更はできますか？</summary>
+            <p>キャンセルや日程変更をご希望の場合は、お手数ですが <a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">@RentalPetShop</a> のDMまでご連絡ください。</p>
+          </details>
+          <details>
+            <summary>自分のイベントにキャストを呼べますか？</summary>
+            <p>はい。<a href="collab.html">コラボ依頼フォーム</a>からご依頼ください。こちらも2週間後以降の日程から承っています。</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-      <p class="reservation__lead-notice">
-        🗓️ ご予約は <strong>2週間後以降</strong> の日程から承っております。<br>
-        余裕を持ったお申し込みをお願いいたします。
-      </p>
-
-      <!-- イベント主催者向け: コラボ依頼ページへの案内 -->
-      <div class="reservation__collab">
-        <p class="reservation__collab-title">イベント主催者さまへ</p>
-        <!-- 文節ごとに span で囲み、どのブラウザでも文節の途中で改行されないようにする -->
-        <p class="reservation__collab-text">
-          <span class="u-phrase">ご自身のイベントへの</span><span class="u-phrase">キャスト出張は、</span><span class="u-phrase">専用のコラボ依頼フォームで</span><span class="u-phrase">受け付けています。</span>
+    <!-- 予約フォーム -->
+    <section class="section section--matcha" id="reservation">
+      <div class="container container--narrow">
+        <h2 class="sticker-title">出張を予約する</h2>
+        <p class="notice">
+          <span class="u-phrase">ご予約は</span><span class="u-phrase"><strong>2週間後以降</strong>の日程から</span><span class="u-phrase">承っています。</span>
         </p>
-        <a href="collab.html" class="reservation__collab-btn">コラボ依頼はこちら →</a>
-      </div>
 
-      <form class="form" id="reservation-form">
-        <!-- 事前確認 -->
-        <div class="form__group form__group--confirm">
-          <h3 class="form__group-title">事前確認</h3>
-
-          <div class="form__field">
-            <label class="form__label form__label--required">
-              本イベントのXアカウント（<a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">@RentalPetShop</a>）をフォローしましたか？<br>
-              <span class="form__note">イベントに関する連絡はXのDMを通じて行います。</span>
+        <form class="card form" id="reservation-form" novalidate>
+          <fieldset class="form__block">
+            <legend>はじめに確認してください</legend>
+            <label class="check">
+              <input type="checkbox" name="x_follow" required>
+              <span class="check__box" aria-hidden="true"></span>
+              <span><a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">@RentalPetShop</a> をフォローしました<small>ご連絡はXのDMで行います</small></span>
             </label>
-            <div class="form__checkbox-wrap">
-              <label class="form__checkbox-label">
-                <input type="checkbox" name="x_follow" required>
-                <span class="form__checkbox-custom"></span>
-                はい、フォローしました
-              </label>
+            <label class="check">
+              <input type="checkbox" name="rules_agree" required>
+              <span class="check__box" aria-hidden="true"></span>
+              <span><a href="#rules">イベントルール</a>を読んで理解しました</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="form__block">
+            <legend>あなたのこと</legend>
+            <div class="field">
+              <label for="x_id">XのID <span class="req">必須</span></label>
+              <input type="text" id="x_id" name="x_id" placeholder="@example" autocomplete="off" required>
             </div>
+            <div class="field">
+              <label for="vrchat_name">VRChatのユーザーネーム <span class="req">必須</span></label>
+              <input type="text" id="vrchat_name" name="vrchat_name" required>
+            </div>
+          </fieldset>
+
+          <fieldset class="form__block">
+            <legend>希望の日程 <span class="req">必須</span></legend>
+            <p class="hint">2週間後以降の日程を、第三候補まで選んでください。</p>
+            <div class="dates">
+              <div class="field"><label for="date1">第一候補</label><input type="date" id="date1" name="date1" required></div>
+              <div class="field"><label for="date2">第二候補</label><input type="date" id="date2" name="date2" required></div>
+              <div class="field"><label for="date3">第三候補</label><input type="date" id="date3" name="date3" required></div>
+            </div>
+            <p class="field-error" id="date-error" hidden>ご予約は2週間後以降の日程からお選びください。</p>
+          </fieldset>
+
+          <fieldset class="form__block">
+            <legend>キャストの人数 <span class="req">必須</span></legend>
+            <p class="hint">ご希望に添えない場合もあります。</p>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="cast_count" value="1" required><span>1匹</span></label>
+              <label class="chip"><input type="radio" name="cast_count" value="2"><span>2匹</span></label>
+              <label class="chip"><input type="radio" name="cast_count" value="3"><span>3匹</span></label>
+              <label class="chip"><input type="radio" name="cast_count" value="4"><span>4匹</span></label>
+              <label class="chip"><input type="radio" name="cast_count" value="5"><span>5匹</span></label>
+              <label class="chip"><input type="radio" name="cast_count" value="max"><span>来れるだけたくさん！</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form__block">
+            <legend>キャストとやりたいこと <span class="req">必須</span></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="activity" value="invite_chill" required><span>インバイト＋でチル</span></label>
+              <label class="chip"><input type="radio" name="activity" value="friend_chill"><span>フレンド＋でフレンドと一緒にチル</span></label>
+              <label class="chip"><input type="radio" name="activity" value="game"><span>ゲームワールドで遊ぶ</span></label>
+              <label class="chip"><input type="radio" name="activity" value="public_walk"><span>パブリックでお散歩</span></label>
+              <label class="chip"><input type="radio" name="activity" value="horror"><span>ホラーワールドを探検</span></label>
+              <label class="chip"><input type="radio" name="activity" value="other" id="activity_other"><span>その他</span></label>
+            </div>
+            <div class="field" id="activity-other-field" hidden>
+              <label for="activity_other_text">やりたいことを教えてください</label>
+              <input type="text" id="activity_other_text" name="activity_other_text" disabled>
+            </div>
+          </fieldset>
+
+          <!-- ボット対策の隠し欄（人には見えない。入力があると GAS 側で弾く） -->
+          <div class="form__hp" aria-hidden="true">
+            <input type="email" name="_hp_email" tabindex="-1" autocomplete="off">
           </div>
 
-          <div class="form__field">
-            <label class="form__label form__label--required">
-              イベントルールについて理解しましたか？<br>
-              <span class="form__note">上記の<a href="#rules">イベントルール</a>をご確認ください。</span>
-            </label>
-            <div class="form__checkbox-wrap">
-              <label class="form__checkbox-label">
-                <input type="checkbox" name="rules_agree" required>
-                <span class="form__checkbox-custom"></span>
-                はい、理解しました
-              </label>
-            </div>
-          </div>
+          <p class="privacy">
+            <span class="u-phrase">いただいたXのIDと</span><span class="u-phrase">VRChatのユーザーネームは、</span><span class="u-phrase">ご予約の連絡にのみ</span><span class="u-phrase">使用します。</span>
+          </p>
+
+          <button type="submit" class="btn btn--primary btn--wide">予約を送信する</button>
+          <p class="form__result" id="form-result" role="alert" hidden></p>
+        </form>
+
+        <!-- 送信完了（送信できたらフォームと入れ替える） -->
+        <div class="card form-done" id="form-done" tabindex="-1" hidden>
+          <h3 class="form-done__title"><span class="u-phrase">ご予約</span><span class="u-phrase">ありがとうございます！</span></h3>
+          <p><span class="u-phrase">内容を確認のうえ、</span><span class="u-phrase">XのDMにてご連絡いたします。</span></p>
+          <p>しばらくお待ちください。</p>
         </div>
-
-        <!-- 応募フォーム -->
-        <div class="form__group">
-          <h3 class="form__group-title">ご予約内容</h3>
-
-          <div class="form__field">
-            <label class="form__label form__label--required" for="x_id">XのIDを入力してください。</label>
-            <input type="text" id="x_id" name="x_id" class="form__input" placeholder="@example" required>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label form__label--required" for="vrchat_name">VRChatのユーザーネームを入力してください。</label>
-            <input type="text" id="vrchat_name" name="vrchat_name" class="form__input" placeholder="VRChatユーザーネーム" required>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label form__label--required">
-              参加を希望する日程を入力してください。<br>
-              <span class="form__note">※ ご予約は2週間後以降の日程からお選びください。</span>
-            </label>
-            <div class="form__date-group">
-              <div class="form__date-item">
-                <label class="form__date-label form__date-label--required" for="date1">第一候補</label>
-                <input type="date" id="date1" name="date1" class="form__input" required>
-              </div>
-              <div class="form__date-item">
-                <label class="form__date-label form__date-label--required" for="date2">第二候補</label>
-                <input type="date" id="date2" name="date2" class="form__input" required>
-              </div>
-              <div class="form__date-item">
-                <label class="form__date-label form__date-label--required" for="date3">第三候補</label>
-                <input type="date" id="date3" name="date3" class="form__input" required>
-              </div>
-            </div>
-            <p class="form__date-error" id="date-error" hidden>ご予約は2週間後以降の日程からお選びください。</p>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label form__label--required">
-              希望するキャストの人数を選択してください。<br>
-              <span class="form__note">※ ご希望に添えない場合がございます。</span>
-            </label>
-            <div class="form__radio-group form__radio-group--inline">
-              <label class="form__radio-label">
-                <input type="radio" name="cast_count" value="1" required>
-                <span class="form__radio-custom"></span>
-                1匹
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="cast_count" value="2">
-                <span class="form__radio-custom"></span>
-                2匹
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="cast_count" value="3">
-                <span class="form__radio-custom"></span>
-                3匹
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="cast_count" value="4">
-                <span class="form__radio-custom"></span>
-                4匹
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="cast_count" value="5">
-                <span class="form__radio-custom"></span>
-                5匹
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="cast_count" value="max">
-                <span class="form__radio-custom"></span>
-                来れるだけたくさん！
-              </label>
-            </div>
-          </div>
-
-          <div class="form__field">
-            <label class="form__label form__label--required">キャストと何をして遊びたいですか？</label>
-            <div class="form__radio-group">
-              <label class="form__radio-label">
-                <input type="radio" name="activity" value="invite_chill" required>
-                <span class="form__radio-custom"></span>
-                インバイト＋でチル
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="activity" value="friend_chill">
-                <span class="form__radio-custom"></span>
-                フレンド＋でフレンドと一緒にチル
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="activity" value="game">
-                <span class="form__radio-custom"></span>
-                ゲームワールドで遊ぶ
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="activity" value="public_walk">
-                <span class="form__radio-custom"></span>
-                パブリックでお散歩
-              </label>
-              <label class="form__radio-label">
-                <input type="radio" name="activity" value="horror">
-                <span class="form__radio-custom"></span>
-                ホラーワールドを探検
-              </label>
-              <label class="form__radio-label form__radio-label--other">
-                <input type="radio" name="activity" value="other" id="activity_other">
-                <span class="form__radio-custom"></span>
-                その他:
-                <input type="text" name="activity_other_text" class="form__input form__input--inline" placeholder="詳細を入力" disabled id="activity_other_text">
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <!-- ハニーポット（bot検知用・人間には見えない） -->
-        <div class="form__hp" aria-hidden="true">
-          <input type="email" name="_hp_email" tabindex="-1" autocomplete="off">
-        </div>
-
-        <button type="submit" class="form__submit">
-          <span class="form__submit-paw">🐾</span>
-          予約を送信する
-        </button>
-      </form>
-
-      <!-- エラーメッセージ -->
-      <div class="form__error" id="form-error" hidden>
-        <p>送信に失敗しました。時間をおいて再度お試しください。</p>
       </div>
+    </section>
+  </main>
 
-      <!-- 送信完了メッセージ -->
-      <div class="form__success" id="form-success" hidden>
-        <div class="form__success-icon">🎉</div>
-        <h3>ご予約ありがとうございます！</h3>
-        <p>内容を確認のうえ、XのDMにてご連絡いたします。</p>
-        <p>しばらくお待ちください。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- トップへ戻る -->
-  <button class="scroll-top" id="scroll-top" aria-label="ページトップへ戻る">↑</button>
-
-  <!-- フッター -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__content">
-        <div class="footer__logo">
-          <span>🐾</span> VRCレンタルペットショップ
-        </div>
-        <div class="footer__links">
-          <a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
-            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://vrc.group/VRCRPS.8829" target="_blank" rel="noopener noreferrer" title="VRChat Group">
-            <svg class="footer__vrc-icon" viewBox="0 0 1200 600" width="48" height="24"><path fill="currentColor" d="M982.78,113.33H217.23c-24.93,0-45.23,20.29-45.23,45.23v188.9c0,24.95,20.3,45.23,45.23,45.23h663.19l61.54,79.17c7.64,9.82,15.79,14.79,24.25,14.79,5.46,0,10.55-2.11,14.38-5.94,4.56-4.59,6.87-11,6.86-19.11l-.08-69.16c22.78-2.31,40.64-21.6,40.64-45v-188.89c0-24.96-20.29-45.23-45.22-45.23ZM1011.34,347.47c0,15.78-12.8,28.56-28.56,28.56h-12.1v1.11l.12,84.57c-.02,5.53-1.76,8.29-4.59,8.29s-6.76-2.8-11.1-8.37l-66.52-85.61H217.23c-15.79,0-28.56-12.78-28.56-28.56v-187.81c0-15.78,12.78-28.56,28.56-28.56h765.55c15.78,0,28.56,12.8,28.56,28.56v187.81Z"/><path fill="currentColor" d="M330.47,177.77c-4.53,0-8.02,1.45-9.06,5.36l-31.29,111.56-31.5-111.56c-1.04-3.92-4.53-5.36-9.06-5.36-7.19,0-16.87,4.53-16.87,11.12,0,.41.21,1.23.41,2.06l39.73,129.48c2.06,6.17,9.47,9.06,17.29,9.06s15.44-2.89,17.29-9.06l39.52-129.48c.21-.83.41-1.43.41-2.06,0-6.38-9.66-11.12-16.87-11.12Z"/><path fill="currentColor" d="M434.81,261.96c15.44-4.74,26.97-17.5,26.97-41.16,0-32.75-21.82-43.03-48.79-43.03h-40.75c-5.15,0-8.64,3.91-8.64,8.23h-.02v133.83c0,5.55,6.59,8.44,13.38,8.44s13.38-2.89,13.38-8.44v-53.73h17.29l29.24,56.81c2.06,4.11,5.57,6.38,9.27,6.38,7.81,0,16.67-7.21,16.67-14,0-.83-.19-2.26-1.02-3.3l-26.97-50.02ZM413.01,245.07h-22.65v-43.84h22.65c13.38,0,22.03,5.76,22.03,22.03s-8.64,21.82-22.03,21.82Z"/><polygon fill="currentColor" points="771.7 274.52 807.52 274.52 789.61 211.33 771.7 274.52"/><path fill="currentColor" d="M938.76,164.13h-432.7c-15.78,0-28.56,12.79-28.56,28.56v120.64c0,15.78,12.79,28.56,28.56,28.56h432.7c15.78,0,28.56-12.79,28.56-28.56v-120.64c0-15.78-12.79-28.56-28.56-28.56ZM548.36,305.98v.03c18.72,0,20.38-13.38,20.99-22.03.41-6.38,6.17-8.44,13.17-8.44,9.27,0,13.59,2.68,13.59,13.17,0,24.91-20.38,40.75-49.2,40.75-25.93,0-47.34-12.76-47.34-47.15v-57.43c0-34.37,21.61-47.15,47.54-47.15,28.61,0,49,15.23,49,39.11,0,10.7-4.32,13.17-13.38,13.17-7.62,0-13.17-2.26-13.38-8.44-.41-6.38-1.85-20.38-21.4-20.38-13.8,0-21.61,7.62-21.61,23.67v57.43c0,16.06,7.81,23.67,22.03,23.67ZM716.11,319.8v.02c0,5.55-6.79,8.44-13.38,8.44s-13.38-2.89-13.38-8.44v-59.08h-46.32v59.08c0,5.55-6.79,8.44-13.38,8.44s-13.38-2.89-13.38-8.44v-133.82c0-5.76,6.59-8.23,13.38-8.23s13.38,2.47,13.38,8.23v53.73h46.32v-53.73c0-5.76,6.59-8.23,13.38-8.23s13.38,2.47,13.38,8.23v133.8ZM830.15,328.25h0c-4.53,0-8.02-1.43-9.06-5.36l-7.83-27.39h-47.15l-7.81,27.39c-1.04,3.91-4.53,5.36-9.06,5.36-7.21,0-16.87-4.53-16.87-11.12,0-.41.21-1.23.41-2.06l39.73-129.48c1.85-6.17,9.47-9.06,17.08-9.06s15.44,2.89,17.29,9.06l39.73,129.48c.21.83.41,1.43.41,2.06,0,6.38-9.68,11.12-16.87,11.12ZM936.77,201.85h-30.05v117.94c0,5.55-6.79,8.44-13.38,8.44s-13.38-2.89-13.38-8.44v-117.94h-30.26c-5.34,0-8.44-5.57-8.44-12.14,0-5.76,2.68-11.95,8.44-11.95h87.07c5.76,0,8.44,6.17,8.44,11.95,0,6.38-3.09,12.14-8.44,12.14Z"/></svg>
-          </a>
-        </div>
-        <p class="footer__hashtag">#VRCレンタルペットショップ</p>
-        <p class="footer__copy">&copy; VRCレンタルペットショップ</p>
-      </div>
+    <div class="container footer__inner">
+      <img class="footer__logo" src="images/logo.png" alt="VRCレンタルペットショップ" width="696" height="391" loading="lazy">
+      <ul class="footer__links">
+        <li><a href="https://x.com/RentalPetShop" target="_blank" rel="noopener noreferrer">X（@RentalPetShop）</a></li>
+        <li><a href="https://vrc.group/VRCRPS.8829" target="_blank" rel="noopener noreferrer">VRChatグループ</a></li>
+        <li><a href="collab.html">イベントコラボのご依頼</a></li>
+      </ul>
+      <p class="footer__hashtag">#VRCレンタルペットショップ</p>
+      <p class="footer__copy">&copy; VRCレンタルペットショップ</p>
     </div>
   </footer>
 
-  <!-- ?v= はキャッシュ対策。JS/データ更新時は数字を上げると確実に再読込される -->
-  <script src="cast-data.js?v=20261026c"></script>
-  <script src="hero-photos.js?v=20261026c"></script>
-  <script src="common.js?v=20261026c"></script>
-  <script src="script.js?v=20261026c"></script>
+  <script src="cast-data.js?v=20261103d"></script>
+  <script src="hero-photos.js?v=20261103d"></script>
+  <script src="common.js?v=20261103d"></script>
+  <script src="renewal.js?v=20261103d"></script>
 </body>
 </html>
