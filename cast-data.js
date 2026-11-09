@@ -151,7 +151,7 @@ const CAST_DATA = [
   {
     name: 'シア',
     vrchatName: '四肢黒助',
-    image: 'images/shia.webp',
+    image: 'images/shia.webp?v=20261109b', // 同名で差し替えたので ?v= でブラウザキャッシュを回避
     description: '三つの属性を持つ<br>小さなトリちゃん<br>属性は気まぐれに変わるよ',
     worldGenres: [
       'ゲームワールド',
