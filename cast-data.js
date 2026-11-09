@@ -147,6 +147,20 @@ const CAST_DATA = [
     ],
   },
 
+  // ── シア ──
+  {
+    name: 'シア',
+    vrchatName: '四肢黒助',
+    image: 'images/shia.webp',
+    description: '三つの属性を持つ<br>小さなトリちゃん<br>属性は気まぐれに変わるよ',
+    worldGenres: [
+      'ゲームワールド',
+    ],
+    ngList: [
+
+    ],
+  },
+
   // ── 新しいキャストを追加するときはここにコピペ ──
   // {
   //   name: '名前',
