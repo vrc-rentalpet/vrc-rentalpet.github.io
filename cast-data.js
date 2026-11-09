@@ -165,7 +165,7 @@ const CAST_DATA = [
   {
     name: 'ねことら',
     vrchatName: 'nekoo1220',
-    image: 'images/nekotora.webp',
+    image: 'images/nekotora.webp?v=20261109d', // 同名で差し替えたので ?v= でブラウザキャッシュを回避
     description: '青くてふわふわのファーの<br>よく動き回るちびとらだよー',
     worldGenres: [
       'チルワ',
