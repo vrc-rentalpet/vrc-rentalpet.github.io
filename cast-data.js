@@ -161,6 +161,21 @@ const CAST_DATA = [
     ],
   },
 
+  // ── ねことら ──
+  {
+    name: 'ねことら',
+    vrchatName: 'nekoo1220',
+    image: 'images/nekotora.webp',
+    description: '青くてふわふわのファーの<br>よく動き回るちびとらだよー',
+    worldGenres: [
+      'チルワ',
+      'ゲームワールド',
+    ],
+    ngList: [
+      'ホラーワールド',
+    ],
+  },
+
   // ── 新しいキャストを追加するときはここにコピペ ──
   // {
   //   name: '名前',
